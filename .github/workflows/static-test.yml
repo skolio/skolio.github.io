@@ -1,4 +1,4 @@
-name: Build the site and run static tests on output
+name: Build and run static tests
 
 # Controls when the workflow will run
 on:
@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  static-build-test:
-    name: Build and run static check scripts
+  static-tests:
+    name: Static Tests
     runs-on: ubuntu-latest
     steps:
       # Checkout git branch
