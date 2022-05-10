@@ -66,7 +66,7 @@ jobs:
           echo "CYPRESS_BROWSER=firefox" >> $GITHUB_ENV
           echo "CYPRESS_VIEWPORT_WIDTH=1080" >> $GITHUB_ENV
           echo "CYPRESS_VIEWPORT_HEIGHT=720" >> $GITHUB_ENV
-          echo "CYPRESS_VIDEO=false" >> $GITHUB_ENV
+          echo "CYPRESS_BASEURL=https://skolio.github.io" >> $GITHUB_ENV
 
       # Automatic installation of node, modules, building and serving site
       - name: Run Cypress Tests
