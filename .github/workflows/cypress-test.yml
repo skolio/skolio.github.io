@@ -63,9 +63,12 @@ jobs:
         # Based on the type of event, at most one of client_payload and input can be set. The other will be empty.
         # If neither a client_payload nor an input are present, the default will simply be empty and use Cypress defaults.
         run: |
-          echo "::set-output browser=${{ github.event.client_payload.browser }}${{ github.event.input.browser }}"
-          echo "::set-output viewport_width=${{ github.event.client_payload.viewport_width }}${{ github.event.input.viewport_width }}"  
-          echo "::set-output viewport_height=${{ github.event.client_payload.viewport_height }}${{ github.event.input.viewport_height }}"  
+        #  echo "::set-output browser=${{ github.event.client_payload.browser }}${{ github.event.input.browser }}"
+        #  echo "::set-output viewport_width=${{ github.event.client_payload.viewport_width }}${{ github.event.input.viewport_width }}"
+        #  echo "::set-output viewport_height=${{ github.event.client_payload.viewport_height }}${{ github.event.input.viewport_height }}"
+          echo "::set-output browser=firefox"
+          echo "::set-output viewport_width=1080"  
+          echo "::set-output viewport_height=720"
 
       # Automatic installation of node, modules, building and serving site
       - name: Run Cypress Tests
