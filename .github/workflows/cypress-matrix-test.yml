@@ -1,0 +1,19 @@
+name: Test Cypress in a variety of configurations
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cypress-matrix-test:
+    strategy:
+      matrix:
+        browser: [electron, firefox, chrome] #Optional: Beta builds?
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch Cypress test on ${{ matrix.browser }} with viewport ${{ matrix.viewport_width }} x $ {{ matrix.viewport_height }}
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: cypress-test
+          client-payload: '{"browser": "${{ matrix.browser }}", "viewport_width": "${{ matrix.viewport_width }}", "viewport_height": "${{ matrix.viewport_height}}" }'
