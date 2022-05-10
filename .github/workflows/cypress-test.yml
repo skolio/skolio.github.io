@@ -8,18 +8,15 @@ on:
       browser:
         description: 'Browser to run the tests on'
         type: string
-        required: true
-        default: electron
+        required: false
       viewport-width:
         description: 'Width of the viewport to test'
         type: string
-        required: true
-        default: 1000
+        required: false
       viewport-height:
         description: 'Width of the viewport to test'
         type: string
-        required: true
-        default: 660
+        required: false
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
@@ -31,18 +28,15 @@ on:
           - chrome
           - firefox
           # Optional: add beta builds
-        required: true
-        default: electron
+        required: false
       viewport-width:
         description: 'Width of the viewport to test'
         type: string
-        required: true
-        default: '1000'
+        required: false
       viewport-height:
         description: 'Width of the viewport to test'
         type: string
-        required: true
-        default: '660'
+        required: false
   repository_dispatch:
     types: cypress-test
   pull_request:
@@ -72,9 +66,9 @@ jobs:
             echo "::set-output viewport_width=${{ github.event.client_payload.viewport_width }}"  
             echo "::set-output viewport_height=${{ github.event.client_payload.viewport_height }}"  
           elif ${{ github.event_name }} == "pull_request"; then
-            echo "::set-output browser=electron"
-            echo "::set-output viewport_width=1000"  
-            echo "::set-output viewport_height=660"  
+            echo "::set-output browser="
+            echo "::set-output viewport_width="  
+            echo "::set-output viewport_height="  
           else 
             echo "::set-output browser=${{ github.event.input.browser }}"
             echo "::set-output viewport_width=${{ github.event.input.viewport_width }}"  
