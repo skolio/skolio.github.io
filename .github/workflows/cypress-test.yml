@@ -63,10 +63,10 @@ jobs:
         # Based on the type of event, at most one of client_payload and input can be set. The other will be empty.
         # If neither a client_payload nor an input are present, the default will simply be empty and use Cypress defaults.
         run: |
-          echo "CYPRESS_BROWSER=firefox" >> $GITHUB_ENV
-          echo "CYPRESS_VIEWPORT_WIDTH=1080" >> $GITHUB_ENV
-          echo "CYPRESS_VIEWPORT_HEIGHT=720" >> $GITHUB_ENV
-          echo "CYPRESS_BASEURL=https://localhost:8080" >> $GITHUB_ENV
+          echo "cy_browser=firefox" >> $GITHUB_ENV
+          echo "cy_vp_width=1080" >> $GITHUB_ENV
+          echo "cy_vp_height=720" >> $GITHUB_ENV
+          echo "cy_baseUrl=http://localhost:1234" >> $GITHUB_ENV 
 
       # Automatic installation of node, modules, building and serving site
       - name: Run Cypress Tests
@@ -74,7 +74,6 @@ jobs:
         with:
           start: bundle exec jekyll serve --no-watch # No changes should happen -> no need to watch
           wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
-          browser: ${{ env.CYPRESS_BROWSER }}
+          browser: ${{ env.cy_browser }}
           # Environment variables for matrix testing, such as viewport size etc.
-          #env: CYPRESS_VIEWPORT_WIDTH=${{ steps.param.outputs.viewport-width }},CYPRESS_VIEWPORT_HEIGHT=${{ steps.param.outputs.viewport_height-width }}
-          # This is probably redundant - If I can't pass entire objects, I could also set the environment variables directly.
+          env: CYPRESS_VIEWPORT_WIDTH=${{ env.cy_vp_width }},CYPRESS_VIEWPORT_HEIGHT=${{ env.cy_vp_height }},CYPRESS_BASEURL=${{ env.cy_baseUrl }}
