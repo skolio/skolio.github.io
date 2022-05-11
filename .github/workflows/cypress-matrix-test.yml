@@ -8,6 +8,13 @@ jobs:
     strategy:
       matrix:
         browser: [electron, firefox, chrome] #Optional: Beta builds?
+        include:
+          - viewport_width: 1000 # Default
+            viewport_height: 660
+          - viewport_width: 1920 # 1080p
+            viewport_height: 1080
+          - viewport_width: 360 # samsung-s10
+            viewport_height: 760
     runs-on: ubuntu-latest
     steps:
       - name: Dispatch Cypress test on ${{ matrix.browser }} with viewport ${{ matrix.viewport_width }} x $ {{ matrix.viewport_height }}
