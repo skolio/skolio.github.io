@@ -63,9 +63,16 @@ jobs:
         # Based on the type of event, at most one of client_payload and input can be set. The other will be empty.
         # If neither a client_payload nor an input are present, the default will simply be empty and use Cypress defaults.
         run: |
-          echo "cy_browser=${{ github.event.client_payload.browser }}${{ github.event.input.browser }}" >> $GITHUB_ENV
-          echo "CYPRESS_VIEWPORT_WIDTH=${{ github.event.client_payload.viewport_width }}${{ github.event.input.viewport_width }}"  >> $GITHUB_ENV
-          echo "CYPRESS_VIEWPORT_HEIGHT=${{ github.event.client_payload.viewport_height }}${{ github.event.input.viewport_height }}"  >> $GITHUB_ENV
+          echo "payload: ${{ github.event.client_payload }}"
+          echo "input: ${{ github.event.input }}"
+          echo "event name: ${{ github.event_name }}"
+          browser="${${{ github.event.client_payload.browser }}:-${${{ github.event.input.browser }}:-''}}"
+          viewport_width="${${{ github.event.client_payload.viewport_width }}:-${${{ github.event.input.viewport_width }}:-''}}"
+          viewport_height="${${{ github.event.client_payload.viewport_height }}:-${${{ github.event.input.viewport_height }}:-''}}"
+          
+          echo "cy_browser=$browser" >> $GITHUB_ENV
+          echo "CYPRESS_VIEWPORT_WIDTH=$viewport_width"  >> $GITHUB_ENV
+          echo "CYPRESS_VIEWPORT_HEIGHT=$viewport_height"  >> $GITHUB_ENV
 
       # Automatic installation of node, modules, building and serving site
       - name: Run Cypress Tests
