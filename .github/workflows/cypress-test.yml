@@ -63,16 +63,9 @@ jobs:
         # Based on the type of event, at most one of client_payload and input can be set. The other will be empty.
         # If neither a client_payload nor an input are present, the default will simply be empty and use Cypress defaults.
         run: |
-          browser="${{ github.event.client_payload.browser }}${{ github.event.input.browser }}"
-          viewport_width="${{ github.event.client_payload.viewport_width }}${{ github.event.input.viewport_width }}"
-          viewport_height="${{ github.event.client_payload.viewport_height }}${{ github.event.input.viewport_height }}"
-          
-          if [[ ${{ github.event_name }} != "pull_request" ]]; then
-            echo "cy_browser=$browser" >> $GITHUB_ENV
-          else
-            echo "cy_browser=${{ github.event.client_payload.browser }}${{ github.event.input.browser }}" >> $GITHUB_ENV
-            echo "cy_config=viewportWidth=$viewportWidth,viewportHeight=$viewport_height" >> $GITHUB_ENV
-          fi
+          echo "cy_browser=${{ github.event.client_payload.browser }}${{ github.event.input.browser }}" >> $GITHUB_ENV
+          echo "CYPRESS_VIEWPORT_WIDTH=${{ github.event.client_payload.viewport_width }}${{ github.event.input.viewport_width }}"  >> $GITHUB_ENV
+          echo "CYPRESS_VIEWPORT_HEIGHT=${{ github.event.client_payload.viewport_height }}${{ github.event.input.viewport_height }}"  >> $GITHUB_ENV
 
       # Automatic installation of node, modules, building and serving site
       - name: Run Cypress Tests
