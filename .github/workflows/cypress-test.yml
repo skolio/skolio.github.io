@@ -76,4 +76,4 @@ jobs:
           wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
           browser: ${{ env.cy_browser }}
           # Environment variables for matrix testing, such as viewport size etc.
-          env: CYPRESS_VIEWPORT_WIDTH=${{ env.cy_vp_width }},CYPRESS_VIEWPORT_HEIGHT=${{ env.cy_vp_height }},CYPRESS_BASEURL=${{ env.cy_baseUrl }}
+          config: viewportWidth=${{ env.cy_vp_width }},viewportHeight=${{ env.cy_vp_height }},baseUrl=${{ env.cy_baseUrl }}
