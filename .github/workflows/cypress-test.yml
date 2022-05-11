@@ -14,7 +14,7 @@ on:
         type: string
         required: true
       viewport-height:
-        description: 'Width of the viewport to test'
+        description: 'Height of the viewport to test'
         type: string
         required: true
   # Allows you to run this workflow manually from the Actions tab
@@ -34,7 +34,7 @@ on:
         type: string
         required: true
       viewport-height:
-        description: 'Width of the viewport to test'
+        description: 'Height of the viewport to test'
         type: string
         required: true
   repository_dispatch:
