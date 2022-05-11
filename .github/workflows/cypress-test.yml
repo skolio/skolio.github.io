@@ -67,10 +67,13 @@ jobs:
           echo "input: ${{ github.event.input }}"
           echo "event name: ${{ github.event_name }}"
           
+          browser=
           browser:="${{ github.event.client_payload.browser }}"
           browser:="${{ github.event.input.browser }}" 
+          viewport_width=
           viewport_width:="${{ github.event.client_payload.viewport_width }}"
           viewport_width:="${{ github.event.input.viewport_width }}"
+          viewport_height=
           viewport_height:="${{ github.event.client_payload.viewport_height }}"
           viewport_height:="${{ github.event.input.viewport_height }}"
           
