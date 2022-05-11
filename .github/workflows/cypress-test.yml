@@ -67,9 +67,9 @@ jobs:
           echo "input: ${{ github.event.input }}"
           echo "event name: ${{ github.event_name }}"
           
-          echo "${${{ github.event.client_payload.browser }}:-${{ github.event.input.browser }}:-''}"
-          echo "${${{ github.event.client_payload.viewport_width }}:-${{ github.event.input.viewport_width }}:-''}"
-          echo "${${{ github.event.client_payload.viewport_height }}:-${{ github.event.input.viewport_height }}:-''}"
+          echo "${'${{ github.event.client_payload.browser }}':-'${{ github.event.input.browser }}':-'electron'}"
+          echo "${'${{ github.event.client_payload.viewport_width }}':-'${{ github.event.input.viewport_width }}':-'1000'}"
+          echo "${'${{ github.event.client_payload.viewport_height }}':-'${{ github.event.input.viewport_height }}':-'660'}"
           
           echo "cy_browser=${${{ github.event.client_payload.browser }}:-${{ github.event.input.browser }}:-''}" >> $GITHUB_ENV
           echo "CYPRESS_VIEWPORT_WIDTH=${${{ github.event.client_payload.viewport_width }}:-${{ github.event.input.viewport_width }}:-''}"  >> $GITHUB_ENV
