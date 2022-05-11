@@ -8,15 +8,15 @@ on:
       browser:
         description: 'Browser to run the tests on'
         type: string
-        required: false
+        required: true
       viewport-width:
         description: 'Width of the viewport to test'
         type: string
-        required: false
+        required: true
       viewport-height:
         description: 'Width of the viewport to test'
         type: string
-        required: false
+        required: true
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
@@ -28,15 +28,15 @@ on:
           - chrome
           - firefox
           # Optional: add beta builds
-        required: false
+        required: true
       viewport-width:
         description: 'Width of the viewport to test'
         type: string
-        required: false
+        required: true
       viewport-height:
         description: 'Width of the viewport to test'
         type: string
-        required: false
+        required: true
   repository_dispatch:
     types: cypress-test
   pull_request:
@@ -58,14 +58,21 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true
 
-      - name: Setup Run Parameters
+      - name: Setup Run Config
         id: param
         # Based on the type of event, at most one of client_payload and input can be set. The other will be empty.
         # If neither a client_payload nor an input are present, the default will simply be empty and use Cypress defaults.
         run: |
-          echo "cy_browser=${{ github.event.client_payload.browser }}${{ github.event.input.browser }}" >> $GITHUB_ENV
-          echo "cy_vp_width=${{ github.event.client_payload.viewport_width }}${{ github.event.input.viewport_width }}" >> $GITHUB_ENV
-          echo "cy_vp_height=${{ github.event.client_payload.viewport_height }}${{ github.event.input.viewport_height }}" >> $GITHUB_ENV
+          browser = "${{ github.event.client_payload.browser }}${{ github.event.input.browser }}"
+          viewport_width="${{ github.event.client_payload.viewport_width }}${{ github.event.input.viewport_width }}"
+          viewport_height="${{ github.event.client_payload.viewport_height }}${{ github.event.input.viewport_height }}"
+          
+          if [[ ${{ github.event_name }} != "pull_request" ]]; then
+            echo "cy_browser=$browser" >> $GITHUB_ENV
+          else
+            echo "cy_browser=${{ github.event.client_payload.browser }}${{ github.event.input.browser }}" >> $GITHUB_ENV
+            echo "cy_config=viewportWidth=$viewportWidth,viewportHeight=$viewport_height" >> $GITHUB_ENV
+          fi
 
       # Automatic installation of node, modules, building and serving site
       - name: Run Cypress Tests
@@ -75,4 +82,4 @@ jobs:
           wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
           browser: ${{ env.cy_browser }}
           # Environment variables for matrix testing, such as viewport size etc.
-          config: viewportWidth=${{ env.cy_vp_width }},viewportHeight=${{ env.cy_vp_height }}
+          config: ${{ env.cy_config }}
