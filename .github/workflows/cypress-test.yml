@@ -63,10 +63,9 @@ jobs:
         # Based on the type of event, at most one of client_payload and input can be set. The other will be empty.
         # If neither a client_payload nor an input are present, the default will simply be empty and use Cypress defaults.
         run: |
-          echo "cy_browser=firefox" >> $GITHUB_ENV
-          echo "cy_vp_width=1080" >> $GITHUB_ENV
-          echo "cy_vp_height=720" >> $GITHUB_ENV
-          echo "cy_baseUrl=http://localhost:1234" >> $GITHUB_ENV 
+          echo "cy_browser=${{ github.event.client_payload.browser }}${{ github.event.input.browser }}" >> $GITHUB_ENV
+          echo "cy_vp_width=${{ github.event.client_payload.viewport_width }}${{ github.event.input.viewport_width }}" >> $GITHUB_ENV
+          echo "cy_vp_height=${{ github.event.client_payload.viewport_height }}${{ github.event.input.viewport_height }}" >> $GITHUB_ENV
 
       # Automatic installation of node, modules, building and serving site
       - name: Run Cypress Tests
@@ -76,4 +75,4 @@ jobs:
           wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
           browser: ${{ env.cy_browser }}
           # Environment variables for matrix testing, such as viewport size etc.
-          config: viewportWidth=${{ env.cy_vp_width }},viewportHeight=${{ env.cy_vp_height }},baseUrl=${{ env.cy_baseUrl }}
+          config: viewportWidth=${{ env.cy_vp_width }},viewportHeight=${{ env.cy_vp_height }}
