@@ -1,4 +1,4 @@
-name: Bash Static Tests
+name: Build and Test
 
 # Controls when the workflow will run
 on:
