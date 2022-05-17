@@ -8,6 +8,7 @@ on:
 
 jobs:
   cypress-tests:
+    name: Run
     runs-on: ubuntu-latest
     steps:
       # Checkout git branch
