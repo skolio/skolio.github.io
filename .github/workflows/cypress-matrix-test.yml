@@ -1,11 +1,15 @@
 name: Test Cypress in a variety of configurations
 
 on:
-  workflow_dispatch:
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   cypress-matrix-test:
+    name: Cypress Full Tests
+    if: github.event.review.state == 'approved'
     strategy:
+      fail-fast: true
       matrix:
         browser: [electron, firefox, chrome] #Optional: Beta builds?
         include:
@@ -17,10 +21,22 @@ jobs:
             viewport_height: 760
     runs-on: ubuntu-latest
     steps:
-      - name: Dispatch Cypress test on ${{ matrix.browser }} with viewport ${{ matrix.viewport_width }} x $ {{ matrix.viewport_height }}
-        uses: peter-evans/repository-dispatch@v2
+      # Checkout git branch
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Automatic setup of Ruby environment and dependencies
+      - name: Perform Ruby Setup
+        uses: ruby/setup-ruby@v1
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          repository: ${{ github.repository }}
-          event-type: cypress-test
-          client-payload: '{"browser": "${{ matrix.browser }}", "viewport_width": "${{ matrix.viewport_width }}", "viewport_height": "${{ matrix.viewport_height}}" }'
+          ruby-version: 2.7
+          bundler-cache: true
+
+      # Automatic installation of node, modules, building and serving site
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v2
+        with:
+          start: bundle exec jekyll serve --no-watch # No changes should happen -> no need to watch
+          wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
+          browser: ${{ matrix.browser }}
+          config: viewportHeight=${{ matrix.viewport_height }},viewportWidth=${{ matrix.viewport_width }}

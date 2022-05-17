@@ -1,50 +1,14 @@
-name: Build and run Cypress tests
+# Verify basic functionality of the site to catch obvious issues
+name: Cypress Smoke Tests
 
 # Controls when the workflow will run
 on:
-  # Allows the workflow to be called from another workflow
-  workflow_call:
-    inputs:
-      browser:
-        description: 'Browser to run the tests on'
-        type: string
-        required: true
-      viewport-width:
-        description: 'Width of the viewport to test'
-        type: string
-        required: true
-      viewport-height:
-        description: 'Height of the viewport to test'
-        type: string
-        required: true
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      browser:
-        description: 'Browser to run the tests on'
-        type: choice
-        options:
-          - electron
-          - chrome
-          - firefox
-          # Optional: add beta builds
-        required: true
-      viewport-width:
-        description: 'Width of the viewport to test'
-        type: string
-        required: true
-      viewport-height:
-        description: 'Height of the viewport to test'
-        type: string
-        required: true
-  repository_dispatch:
-    types: cypress-test
   pull_request:
     branches: [ main ]
 
 jobs:
   cypress-tests:
-    name: Cypress Tests
+    name: Cypress Smoke Tests
     runs-on: ubuntu-latest
     steps:
       # Checkout git branch
@@ -58,27 +22,9 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true
 
-      - name: Setup Run Config
-        id: param
-        # Based on the type of event, at most one of client_payload and input can be set. The other will be empty.
-        # If neither a client_payload nor an input are present, the default will simply be empty and use Cypress defaults.
-        run: |
-          echo "payload: ${{ github.event.client_payload }}"
-          echo "input: ${{ github.event.input }}"
-          echo "event name: ${{ github.event_name }}"
-          
-          echo "${'${{ github.event.client_payload.browser }}':-'${{ github.event.input.browser }}':-'electron'}"
-          echo "${'${{ github.event.client_payload.viewport_width }}':-'${{ github.event.input.viewport_width }}':-'1000'}"
-          echo "${'${{ github.event.client_payload.viewport_height }}':-'${{ github.event.input.viewport_height }}':-'660'}"
-          
-          echo "cy_browser=${${{ github.event.client_payload.browser }}:-${{ github.event.input.browser }}:-''}" >> $GITHUB_ENV
-          echo "CYPRESS_VIEWPORT_WIDTH=${${{ github.event.client_payload.viewport_width }}:-${{ github.event.input.viewport_width }}:-''}"  >> $GITHUB_ENV
-          echo "CYPRESS_VIEWPORT_HEIGHT=${${{ github.event.client_payload.viewport_height }}:-${{ github.event.input.viewport_height }}:-''}"  >> $GITHUB_ENV
-
       # Automatic installation of node, modules, building and serving site
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v2
         with:
           start: bundle exec jekyll serve --no-watch # No changes should happen -> no need to watch
           wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
-          browser: ${{ env.cy_browser }}
