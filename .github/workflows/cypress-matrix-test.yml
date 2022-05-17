@@ -9,17 +9,21 @@ on:
 jobs:
   cypress-matrix-test:
     name: Cypress Full
-    if: github.event.review.state == 'approved'
+    if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
     strategy:
       fail-fast: true
       matrix:
         browser: [electron, firefox, chrome] #Optional: Beta builds?
+        viewport: [default, 1080p, samsung-s10]
         include:
-          - viewport_width: 1000 # Default
+          - viewport: default
+            viewport_width: 1000 # Default
             viewport_height: 660
-          - viewport_width: 1920 # 1080p
+          - viewport: 1080p
+            viewport_width: 1920 # 1080p
             viewport_height: 1080
-          - viewport_width: 360 # samsung-s10
+          - viewport: samsung-s10
+            viewport_width: 360 # samsung-s10
             viewport_height: 760
     runs-on: ubuntu-latest
     steps:
