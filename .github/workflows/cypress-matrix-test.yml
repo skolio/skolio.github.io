@@ -9,7 +9,7 @@ on:
 jobs:
   cypress-matrix-test:
     name: Cypress Full
-    if: github.event_name == "workflow_dispatch" || github.event.review.state == 'approved'
+    if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
     strategy:
       fail-fast: true
       matrix:
