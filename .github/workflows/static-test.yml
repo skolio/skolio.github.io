@@ -31,4 +31,4 @@ jobs:
 
       # Run static test scripts
       - name: Run Test Scripts
-        run: bash .run_static_output_tests.sh
+        run: bash _run_static_output_tests.sh
