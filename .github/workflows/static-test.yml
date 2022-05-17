@@ -11,7 +11,7 @@ on:
 
 jobs:
   static-tests:
-    name: Run
+    name: Bash Checks
     runs-on: ubuntu-latest
     steps:
       # Checkout git branch

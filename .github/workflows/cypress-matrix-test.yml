@@ -1,5 +1,5 @@
 # Test site under different configurations to ensure responsiveness and compatibility
-name: Cypress Full Tests
+name: Build and Test
 
 on:
   pull_request_review:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   cypress-matrix-test:
-    name: Run
+    name: Cypress Full
     if: github.event.review.state == 'approved'
     strategy:
       fail-fast: true

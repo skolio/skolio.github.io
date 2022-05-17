@@ -8,7 +8,7 @@ on:
 
 jobs:
   cypress-tests:
-    name: Run
+    name: Cypress Smoke
     runs-on: ubuntu-latest
     steps:
       # Checkout git branch
