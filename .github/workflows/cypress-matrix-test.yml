@@ -1,5 +1,5 @@
 # Test site under different configurations to ensure responsiveness and compatibility
-name: Build and Test
+name: Cypress Matrix Test
 
 on:
   pull_request_review:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   cypress-matrix-test:
-    name: Cypress Full
+    name: Cypress Matrix Test
     if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
     strategy:
       fail-fast: true
