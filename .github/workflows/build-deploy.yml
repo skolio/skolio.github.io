@@ -1,4 +1,4 @@
-name: Build and Deploy the site
+name: Build and Deploy
 
 # Controls when the workflow will run
 on:
@@ -11,6 +11,7 @@ on:
 
 jobs:
   github-pages:
+    name: Deploying ${{ github.ref_type }} ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
       # Checkout git branch

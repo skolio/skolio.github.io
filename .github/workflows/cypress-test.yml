@@ -1,0 +1,31 @@
+# Verify basic functionality of the site to catch obvious issues
+name: Cypress Smoke Test
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  cypress-tests:
+    name: Cypress Smoke Test
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout git branch
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Automatic setup of Ruby environment and dependencies
+      - name: Perform Ruby Setup
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
+      # Automatic installation of node, modules, building and serving site
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v2
+        with:
+          start: bundle exec jekyll serve --no-watch # No changes should happen -> no need to watch
+          wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
