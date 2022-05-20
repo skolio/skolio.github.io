@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  cypress-matrix-test:
-    name: Cypress Matrix Test
+  test:
+    name: Run Test Configuration
     if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
     strategy:
       fail-fast: true
@@ -46,3 +46,13 @@ jobs:
           wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
           browser: ${{ matrix.browser }}
           config: viewportHeight=${{ matrix.viewport_height }},viewportWidth=${{ matrix.viewport_width }}
+
+  verify:
+    name: All tests successful
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Verify Matrix Test Result
+        if: ${{ needs.test.result != 'success' }}
+        run: exit 1
