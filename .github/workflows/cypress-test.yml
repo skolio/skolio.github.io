@@ -5,6 +5,7 @@ name: Cypress Smoke Test
 on:
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   cypress-tests:
