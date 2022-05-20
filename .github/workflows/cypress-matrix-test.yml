@@ -1,0 +1,48 @@
+# Test site under different configurations to ensure responsiveness and compatibility
+name: Build and Test
+
+on:
+  pull_request_review:
+    types: [submitted]
+  workflow_dispatch:
+
+jobs:
+  cypress-matrix-test:
+    name: Cypress Full
+    if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
+    strategy:
+      fail-fast: true
+      matrix:
+        browser: [electron, firefox, chrome] #Optional: Beta builds?
+        viewport: [default, 1080p, samsung-s10]
+        include:
+          - viewport: default
+            viewport_width: 1000 # Default
+            viewport_height: 660
+          - viewport: 1080p
+            viewport_width: 1920 # 1080p
+            viewport_height: 1080
+          - viewport: samsung-s10
+            viewport_width: 360 # samsung-s10
+            viewport_height: 760
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout git branch
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Automatic setup of Ruby environment and dependencies
+      - name: Perform Ruby Setup
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
+      # Automatic installation of node, modules, building and serving site
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v2
+        with:
+          start: bundle exec jekyll serve --no-watch # No changes should happen -> no need to watch
+          wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
+          browser: ${{ matrix.browser }}
+          config: viewportHeight=${{ matrix.viewport_height }},viewportWidth=${{ matrix.viewport_width }}
