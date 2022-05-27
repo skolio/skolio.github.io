@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  cypress-matrix-test:
-    name: Cypress Matrix Test
+  test:
+    name: Run Test Configuration
     if: github.event_name == 'workflow_dispatch' || (github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'main')
     strategy:
       fail-fast: true
