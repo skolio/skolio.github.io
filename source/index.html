@@ -6,5 +6,13 @@ style: subpages/index.css
 
 {% for sec in site.data.mainpage_sections %}
 {% assign file = sec.file %}
-{% include {{file}} %}
+
+{% if sec.styling %}
+<link rel="stylesheet" property="stylesheet" href="assets/css/mainpage_sections/{{ sec.styling }}">
+{% endif %}
+
+<div class="SectionWrapper">
+{% include mainpage_sections/{{file}} %}
+</div>
+
 {% endfor %}

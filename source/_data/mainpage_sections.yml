@@ -1,10 +1,7 @@
-- file: mainpage_sections/head.html
-  styling: mainpage_sections/head.scss
-- file: mainpage_sections/motivation.html
-  #styling: mainpage_sections/motivation.css
-- file: mainpage_sections/whySkolio.html
-- file: mainpage_sections/skoliose.html
-- file: mainpage_sections/physio.html
-  #{% include mainpage_sections/whySkolio.html %}
-  #{% include mainpage_sections/skoliose.html %}
-  #{% include mainpage_sections/physio.html %}
+- file: head.html
+  styling: head.scss
+- file: motivation.html
+  #styling: /motivation.css
+- file: whySkolio.html
+- file: skoliose.html
+- file: physio.html
