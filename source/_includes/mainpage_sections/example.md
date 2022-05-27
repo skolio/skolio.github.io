@@ -27,7 +27,7 @@ Writing it is simpler than HTML
 6. like
 2. this
 
-(The numbers don't even need to match, as long as there's a number it'll automatically produce the right output!)
+<p class="foo">(The numbers don't even need to match, as long as there's a number it'll automatically produce the right output!)</p>
 
 > Blockquotes like this
 
@@ -51,7 +51,7 @@ And yet another
 ---
 
 | A | Table |
-|---| ----- |
+|---| --- |
 | A | Cell  |
 |this| doesn't need to line up |
 
