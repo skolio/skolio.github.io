@@ -9,14 +9,21 @@ Writing it is simpler than HTML
 - include
 - bullet
 - lists
+    - with
+    - layers
 - like
 - this
+    - and
+        - even
+            - deeper!
 
 1. You
 2. can 
 4. include
 3. numbered
 6. lists
+    1. with
+    2. layers
 6. like
 2. this
 
