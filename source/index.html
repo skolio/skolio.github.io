@@ -11,7 +11,7 @@ style: subpages/index.css
 <link rel="stylesheet" property="stylesheet" href="assets/css/mainpage_sections/{{ sec.styling }}">
 {% endif %}
 
-<div class="SectionWrapper">
+<div class="SectionWrapper" id="{{ sec.id }}" >
 {% if sec.type == "md" %}
 {% capture md_inc %}{% include mainpage_sections/{{file}} %}{% endcapture %}
 {{ md_inc | markdownify }}
