@@ -5,3 +5,6 @@
 - file: whySkolio.html
 - file: skoliose.html
 - file: physio.html
+- file: example.md
+  styling: example.css
+  type: md

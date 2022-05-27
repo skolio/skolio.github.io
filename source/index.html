@@ -12,7 +12,12 @@ style: subpages/index.css
 {% endif %}
 
 <div class="SectionWrapper">
+{% if sec.type == "md" %}
+{% capture md_inc %}{% include mainpage_sections/{{file}} %}{% endcapture %}
+{{ md_inc | markdownify }}
+{% else %}
 {% include mainpage_sections/{{file}} %}
+{% endif %}
 </div>
 
 {% endfor %}
