@@ -34,6 +34,7 @@ github_username:  lenkva
 # theme: minima # TODO: Theme auswählen -> @annNau
 # plugins:
 #   - jekyll-feed
+source: source
 
 # Exclude from processing.
 # The following items will not be processed, by default.
