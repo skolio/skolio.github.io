@@ -1,0 +1,23 @@
+---
+layout: default
+title: Skolio
+style: subpages/index.css
+---
+
+{% for sec in site.data.mainpage_sections %}
+{% assign file = sec.file %}
+
+{% if sec.styling %}
+<link rel="stylesheet" property="stylesheet" href="assets/css/mainpage_sections/{{ sec.styling }}">
+{% endif %}
+
+<div class="SectionWrapper" id="{{ sec.id }}" >
+{% if sec.type == "md" %}
+{% capture md_inc %}{% include mainpage_sections/{{file}} %}{% endcapture %}
+{{ md_inc | markdownify }}
+{% else %}
+{% include mainpage_sections/{{file}} %}
+{% endif %}
+</div>
+
+{% endfor %}
