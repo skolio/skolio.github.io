@@ -4,17 +4,31 @@
     </div>
     <div>
         <nav>
-            <a class="dropbtn" href="/">Start</a>
+            {% for item in site.data.header_navigation %}
+            {% if item.subitems %}
             <div class="dropdown">
-                <a class="dropbtn">Skolio App</a>
+            {% endif %}
+                <a class="dropbtn"
+                   {% if item.url %}
+                   href="{{ item.url }}"
+                   {% endif %}>
+                    {{ item.title }}
+                </a>
+
+            {% if item.subitems %}
                 <div class="dropdown-content">
-                    <a href="/subpages/patients.html">Für Betroffene</a>
-                    <a href="/subpages/specialists.html">Für Fachleute</a>
-                    <a href="/subpages/relatives.html">Für Angehörige</a>
+                    {% for subitem in item.subitems %}
+                    <a
+                        {% if subitem.url %}
+                        href="{{ subitem.url }}"
+                        {% endif %}>
+                        {{ subitem.title }}
+                    </a>
+                    {% endfor %}
                 </div>
             </div>
-            <a class="dropbtn" href="/subpages/blog.html">Skolio Guide</a>
-            <a class="dropbtn" href="/subpages/team.html">Team</a>
+            {% endif %}
+            {% endfor %}
         </nav>
     </div>
 </div>
