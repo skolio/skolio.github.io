@@ -42,15 +42,42 @@ button {
   border-style: none;
   border-radius: 10px;
 }
-/* Styling for blue buttons */
+
+/* Styling for yellow buttons */
 button.blue{
-  background-color: $skolio-blue-default;
+  background-color: $skolio-yellow-default;
 }
 
 button.blue:hover{
-  background-color: $skolio-blue-hovered;
+  background-color: $skolio-yellow-hovered;
 }
 
 button.blue:active{
-  background-color: $skolio-blue-pressed;
+  background-color: $skolio-yellow-pressed;
+}
+
+/* Styling for red buttons */
+button.blue{
+  background-color: $skolio-red-default;
+}
+
+button.blue:hover{
+  background-color: $skolio-red-hovered;
+}
+
+button.blue:active{
+  background-color: $skolio-red-pressed;
+}
+
+/* Styling for green buttons */
+button.blue{
+  background-color: $skolio-green-default;
+}
+
+button.blue:hover{
+  background-color: $skolio-green-hovered;
+}
+
+button.blue:active{
+  background-color: $skolio-green-pressed;
 }
