@@ -9,8 +9,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
+      # Whether to build the site without deploying it (e.g. testing purposes)
       build-only:
-        description: Whether to build the site without deploying it (e.g. testing purposes)
+        name: Build Only
+        description: Build the site without deploying it
         required: false
         default: false
         type: boolean
