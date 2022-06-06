@@ -27,6 +27,7 @@ jobs:
         uses: actions/checkout@v3.0.2
         with:
           set-safe-directory: '/github/workspace'
+
       # Cache gems
       - name: Cache Gems
         uses: actions/cache@v3
@@ -36,7 +37,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-       Build the site and push new state to branch gh-pages
+      # Build the site and push new state to branch gh-pages
       - name: Build and deploy site
         if: github.event_name == 'push' || !github.event.inputs.build-only
         uses: helaili/jekyll-action@2.3.1    # Choose any one of the Jekyll Actions
