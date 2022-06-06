@@ -3,8 +3,8 @@ name: Build and Deploy
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push events for the publish branch
-  #push:
-  #  branches: [ publish ]
+  push:
+    branches: [ publish ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,11 +22,12 @@ jobs:
     name: Deploying ${{ github.ref_type }} ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
+      - name: Set safe directory
+        run: git config --global --add safe.directory /github/workspace
+
       # Checkout git branch
       - name: Checkout
         uses: actions/checkout@v3.0.2
-        with:
-          set-safe-directory: '/github/workspace'
 
       # Cache gems
       - name: Cache Gems
