@@ -14,7 +14,7 @@ on:
 jobs:
   test:
     name: Integration Tests
-    if: !github.event.inputs.skip-tests
+    if: ${{ !github.event.inputs.skip-tests }}
     strategy:
       fail-fast: true
       matrix:
@@ -54,7 +54,7 @@ jobs:
 
   verify:
     name: Integration Tests Completed
-    if: !github.event.inputs.skip-tests
+    if: ${{ !github.event.inputs.skip-tests }}
     runs-on: ubuntu-latest
     needs: test
     steps:
