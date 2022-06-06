@@ -46,4 +46,5 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.build-only
         uses: helaili/jekyll-action@2.3.1    
         with:                                
+          token: ${{ secrets.GITHUB_TOKEN }}
           build-only: true
