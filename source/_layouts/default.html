@@ -11,6 +11,11 @@
         <link rel="stylesheet" href="/assets/css/{{ page.style }}">
     </head>
     <body>
+        {%- if page.preamble -%}
+        {% capture preamble %}{% include {{page.preamble}} %}{% endcapture %}
+        {{ preamble | markdownify }}
+        {%- endif -%}
+        
         {% include header.html %}
         {{ content }}
         {% include footer.html %}
