@@ -52,4 +52,4 @@ jobs:
         with:                                
           token: ${{ secrets.GITHUB_TOKEN }}
           keep_history: true
-          build-only: true
+          build_only: true
