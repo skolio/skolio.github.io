@@ -1,10 +1,10 @@
-name: Build and Deploy
+name: Deploy Website
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push events for the publish branch
-  #push:
-  #  branches: [ publish ]
+  push:
+    branches: [ publish ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
