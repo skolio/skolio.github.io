@@ -1,0 +1,11 @@
+<div class="accordion" id="{{include.id}}">
+
+{% for item in include.entries %}
+    {% include components/accordion-item 
+        id-prefix=item.id-prefix
+        title=item.title
+        source=item.source
+        parent-id=include.id
+    %}
+{% endfor %}
+</div>
