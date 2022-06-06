@@ -1,3 +1,17 @@
 ---
 ---
 /* Main page, section patients Styling */
+.patients_TextContainer {
+  width: 50%;
+}
+
+.patients_ImgContainer {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 85%;
+  }
+}

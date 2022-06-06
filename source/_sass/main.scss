@@ -4,9 +4,7 @@
 @import "header.scss";
 @import "footer.scss";
 
-
 /* Universal style definitions across all pages */
-
 body {
   font-family: "Mulish", sans-serif;
   margin: 0;
@@ -14,10 +12,29 @@ body {
 
 h1 {
   font-family: "Mulish-Bold", sans-serif;
+  font-size: 48px;
+  line-height: 56px;
 }
 
 h2 {
   font-family: "Mulish-Bold", sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+p.large {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+p.normal {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+p.small {
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .FlexDiv {
@@ -30,54 +47,76 @@ h2 {
 }
 
 .SectionWrapper {
-  padding: 0 10% 50px 10%;
+  padding: 5% 0;
+  position: relative;
+}
+
+.ImageWrapper {
+  position: absolute;
+  top: 0;
+  z-index: -50;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 button {
-  font-size: 14px;
-  line-height: 18px;
+  font-family: Mulish-Bold, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
 
-  padding: 10px 15px;
+  padding: 10px 24px;
 
   border-style: none;
-  border-radius: 10px;
+  border-radius: 20px;
+
+  a {
+    color: $skolio-black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $skolio-black;
+  }
 }
 
 /* Styling for yellow buttons */
-button.blue{
+button.yellow{
   background-color: $skolio-yellow-default;
 }
 
-button.blue:hover{
+button.yellow:hover{
   background-color: $skolio-yellow-hovered;
 }
 
-button.blue:active{
+button.yellow:active{
   background-color: $skolio-yellow-pressed;
 }
 
 /* Styling for red buttons */
-button.blue{
+button.red{
   background-color: $skolio-red-default;
 }
 
-button.blue:hover{
+button.red:hover{
   background-color: $skolio-red-hovered;
 }
 
-button.blue:active{
+button.red:active{
   background-color: $skolio-red-pressed;
 }
 
 /* Styling for green buttons */
-button.blue{
+button.green{
   background-color: $skolio-green-default;
 }
 
-button.blue:hover{
+button.green:hover{
   background-color: $skolio-green-hovered;
 }
 
-button.blue:active{
+button.green:active{
   background-color: $skolio-green-pressed;
 }
