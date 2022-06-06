@@ -10,7 +10,7 @@
   file: skoliose.html
 - id: physio
   file: physio.html
-- id: example
-  file: example.md
-  styling: example.css
-  type: md
+#- id: example
+#  file: example.md
+#  styling: example.css
+#  type: md
