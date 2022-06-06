@@ -1,15 +1,13 @@
-# Test site under different configurations to ensure responsiveness and compatibility
-name: Cypress Matrix Test
+name: Publish website changes
 
+# Controls when the workflow will run
 on:
-  #pull_request_review:
-  #  types: [submitted]
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   test:
-    name: Run Test Configuration
-    if: github.event_name == 'workflow_dispatch' || (github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'publish')
+    name: Integration Tests
     strategy:
       fail-fast: true
       matrix:
@@ -29,7 +27,7 @@ jobs:
     steps:
       # Checkout git branch
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.0.2
 
       # Automatic setup of Ruby environment and dependencies
       - name: Perform Ruby Setup
@@ -48,13 +46,26 @@ jobs:
           config: viewportHeight=${{ matrix.viewport_height }},viewportWidth=${{ matrix.viewport_width }}
 
   verify:
-    name: All tests successful
+    name: Integration Tests Completed
     if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Print Matrix Test Result
-        run: echo ${{ needs.test.result }}
       - name: Verify Matrix Test Result
         if: ${{ needs.test.result != 'success' }}
         run: echo "Tests failed!" && exit 1
+
+  publish:
+    name: Publish Website Changes
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Push changes to Publish branch
+        uses: devmasx/merge-branch@v1.4.0
+        with:
+          type: now
+          target_branch: publish
+          github_token: ${{ github.token }}
+    

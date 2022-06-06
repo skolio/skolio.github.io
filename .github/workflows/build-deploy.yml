@@ -2,9 +2,9 @@ name: Build and Deploy
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push events for the main branch
-  push:
-    branches: [ main ]
+  # Triggers the workflow on push events for the publish branch
+  #push:
+  #  branches: [ publish ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,7 +24,9 @@ jobs:
     steps:
       # Checkout git branch
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.0.2
+        with:
+          set-safe-directory: '/github/workspace'
       # Cache gems
       - name: Cache Gems
         uses: actions/cache@v3
@@ -34,7 +36,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      # Build the site and push new state to branch gh-pages
+       Build the site and push new state to branch gh-pages
       - name: Build and deploy site
         if: github.event_name == 'push' || !github.event.inputs.build-only
         uses: helaili/jekyll-action@2.3.1    # Choose any one of the Jekyll Actions
@@ -47,4 +49,5 @@ jobs:
         uses: helaili/jekyll-action@2.3.1    
         with:                                
           token: ${{ secrets.GITHUB_TOKEN }}
+          keep_history: true
           build-only: true
