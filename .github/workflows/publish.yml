@@ -66,12 +66,13 @@ jobs:
     name: Publish Website Changes
     needs: verify
     runs-on: ubuntu-latest
-    if: ${{ !github.events.inputs.skip-tests || needs.verify.result == 'success' }}
+    if: ${{ always () }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@master
 
       - name: Push changes to Publish branch
+        if: ${{ !github.events.inputs.skip-tests || needs.verify.result == 'success' }}
         uses: devmasx/merge-branch@v1.4.0
         with:
           type: now
