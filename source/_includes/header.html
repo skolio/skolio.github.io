@@ -1,0 +1,35 @@
+<div class="FlexDiv Header_Container">
+    <div>
+        <img src="" alt="Skolio Icon">
+    </div>
+    <div>
+        <nav>
+            {% for item in site.data.header_navigation %}
+            {% if item.subitems %}
+            <div class="dropdown">
+            {% endif %}
+                <a class="dropbtn"
+                   {% if item.url %}
+                   href="{{ item.url }}"
+                   {% endif %}
+                >
+                    {{ item.title }}
+                </a>
+
+            {% if item.subitems %}
+                <div class="dropdown-content">
+                    {% for subitem in item.subitems %}
+                    <a
+                        {% if subitem.url %}
+                        href="{{ subitem.url }}"
+                        {% endif %}>
+                        {{ subitem.title }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </nav>
+    </div>
+</div>

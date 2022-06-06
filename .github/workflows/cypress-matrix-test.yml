@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     name: Run Test Configuration
-    if: github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved'
+    if: github.event_name == 'workflow_dispatch' || (github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'main')
     strategy:
       fail-fast: true
       matrix:
@@ -53,6 +53,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
+      - name: Print Matrix Test Result
+        run: echo ${{ needs.test.result }}
       - name: Verify Matrix Test Result
         if: ${{ needs.test.result != 'success' }}
-        run: exit 1
+        run: echo "Tests failed!" && exit 1

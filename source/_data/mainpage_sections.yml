@@ -1,0 +1,16 @@
+- id: head
+  file: head.html
+  styling: head.css
+- id: motivation
+  file: motivation.html
+  #styling: /motivation.css
+- id: whySkolio
+  file: whySkolio.html
+- id: skoliose
+  file: skoliose.html
+- id: physio
+  file: physio.html
+#- id: example
+#  file: example.md
+#  styling: example.css
+#  type: md
