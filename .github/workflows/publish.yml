@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       skip-tests:
-        name: Skip Integration Tests
+        description: Skip Integration Tests
         required: false
         default: false
         type: boolean
@@ -66,8 +66,10 @@ jobs:
     name: Publish Website Changes
     needs: verify
     runs-on: ubuntu-latest
+    if: ${{ !github.events.inputs.skip-tests || needs.verify.result == 'success' }}
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout Code
+        uses: actions/checkout@master
 
       - name: Push changes to Publish branch
         uses: devmasx/merge-branch@v1.4.0
