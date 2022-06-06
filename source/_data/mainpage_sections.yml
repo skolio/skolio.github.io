@@ -1,15 +1,15 @@
-- id: head
-  file: head.html
-  styling: head.css
-- id: motivation
-  file: motivation.html
-  #styling: /motivation.css
-- id: whySkolio
-  file: whySkolio.html
-- id: skoliose
-  file: skoliose.html
+- id: skolioApp
+  file: skolioApp.html
+  styling: skolioApp.css
+- id: patients
+  file: patients.html
+  styling: patients.css
 - id: physio
   file: physio.html
+  styling: physio.css
+- id: contact
+  file: contact.html
+  styling: contact.css
 #- id: example
 #  file: example.md
 #  styling: example.css
