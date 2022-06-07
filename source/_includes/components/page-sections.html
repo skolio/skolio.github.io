@@ -1,0 +1,26 @@
+{% for section in include.sections %}
+{% capture file %}{{include.file-prefix}}/{{section.file}}{% endcapture %}
+<div class="SectionWrapper">
+    {% if section.styling %}
+    <link rel="stylesheet" property="stylesheet" href="assets/css/{{include.file-prefix}}/{{ section.styling }}">
+    {% endif %}
+
+    {% if section.bg-image %}
+    <div class="ImageWrapper">
+        <img src="assets/images/{{section.bg-image}}" alt="Background image for the section">
+    </div>
+    <!-- Placeholder for image wrapper div -->
+    {% endif %}
+
+    {% capture classes %}{% if section.classes %} {{section.classes}}{% endif %}{% endcapture %}
+    <div class="container{{classes}}" id="{{include.id-prefix}}-{{ section.id }}">
+        {% if section.type == "md" %}
+        {% capture md_inc %}{% include {{file}} %}{% endcapture %}
+        {{ md_inc | markdownify }}
+        {% else %}
+        {% include {{file}} %}
+        {% endif %}
+    </div>
+
+</div>
+{% endfor %}

@@ -6,6 +6,6 @@ describe('Index Page', function () {
         cy.visit('/')
     })
     it('should contain "Coming Soon"', function () {
-        cy.get('body').should('contain', 'Coming Soon')
+        cy.get('body').get('h1').should('contain', 'Skolio - We’ve got your back.')
     });
 });

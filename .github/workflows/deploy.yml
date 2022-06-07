@@ -1,0 +1,55 @@
+name: Deploy Website
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events for the publish branch
+  push:
+    branches: [ publish ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      # Whether to build the site without deploying it (e.g. testing purposes)
+      build-only:
+        name: Build Only
+        description: Build the site without deploying it
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  github-pages:
+    name: Deploying ${{ github.ref_type }} ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set safe directory
+        run: git config --global --add safe.directory /github/workspace
+
+      # Checkout git branch
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+
+      # Cache gems
+      - name: Cache Gems
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      # Build the site and push new state to branch gh-pages
+      - name: Build and deploy site
+        if: github.event_name == 'push' || !github.event.inputs.build-only
+        uses: helaili/jekyll-action@2.3.1    # Choose any one of the Jekyll Actions
+        with:                                # Some relative inputs of your action
+          keep_history: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Site
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.build-only
+        uses: helaili/jekyll-action@2.3.1    
+        with:                                
+          token: ${{ secrets.GITHUB_TOKEN }}
+          keep_history: true
+          build_only: true

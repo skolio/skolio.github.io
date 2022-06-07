@@ -1,0 +1,14 @@
+- id: skolioApp
+  file: skolioApp.html
+  styling: skolioApp.css
+- id: patients
+  file: patients.html
+  styling: patients.css
+  bg-image: patients-background.png
+  classes: FlexDiv
+- id: physio
+  file: physio.html
+  styling: physio.css
+- id: contact
+  file: contact.html
+  styling: contact.css

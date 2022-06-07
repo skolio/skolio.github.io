@@ -29,11 +29,9 @@ domain: skolio.github.io
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  lenkva
+repository: skolio/skolio.github.io
 
-# Build settings
-# theme: minima # TODO: Theme auswählen -> @annNau
-# plugins:
-#   - jekyll-feed
+source: source
 
 # Exclude from processing.
 # The following items will not be processed, by default.

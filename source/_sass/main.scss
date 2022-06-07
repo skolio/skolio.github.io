@@ -1,0 +1,122 @@
+@import "bootstrap/scss/bootstrap.scss";
+@import "colors.scss";
+@import "fonts.scss";
+@import "header.scss";
+@import "footer.scss";
+
+/* Universal style definitions across all pages */
+body {
+  font-family: "Mulish", sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-family: "Mulish-Bold", sans-serif;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+h2 {
+  font-family: "Mulish-Bold", sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+p.large {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+p.normal {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+p.small {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.FlexDiv {
+  display: flex;
+}
+
+.FlexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.SectionWrapper {
+  padding: 5% 0;
+  position: relative;
+}
+
+.ImageWrapper {
+  position: absolute;
+  top: 0;
+  z-index: -50;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+button {
+  font-family: Mulish-Bold, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+
+  padding: 10px 24px;
+
+  border-style: none;
+  border-radius: 20px;
+
+  a {
+    color: $skolio-black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $skolio-black;
+  }
+}
+
+/* Styling for yellow buttons */
+button.yellow{
+  background-color: $skolio-yellow-default;
+}
+
+button.yellow:hover{
+  background-color: $skolio-yellow-hovered;
+}
+
+button.yellow:active{
+  background-color: $skolio-yellow-pressed;
+}
+
+/* Styling for red buttons */
+button.red{
+  background-color: $skolio-red-default;
+}
+
+button.red:hover{
+  background-color: $skolio-red-hovered;
+}
+
+button.red:active{
+  background-color: $skolio-red-pressed;
+}
+
+/* Styling for green buttons */
+button.green{
+  background-color: $skolio-green-default;
+}
+
+button.green:hover{
+  background-color: $skolio-green-hovered;
+}
+
+button.green:active{
+  background-color: $skolio-green-pressed;
+}
