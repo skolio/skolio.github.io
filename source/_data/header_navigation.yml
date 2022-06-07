@@ -1,14 +1,12 @@
-- title: Start
+- title: Home
   url: /
-- title: Skolio App
-  subitems:
-    - title: Für Betroffene
-      url: patients.html
-    - title: Für Fachleute
-      url: specialists.html
-    - title: Für Angehörige
-      url: relatives.html
-- title: Skolio Guide
-  url: blog
-- title: Team
-  url: team
+- title: Skolio-App
+  url: app.html
+- title: Für Betroffene
+  url: patients.html
+- title: Für Fachleute
+  url: specialists.html
+- title: FAQ
+  url: faq.html
+- title: Kontakt
+  url: /
