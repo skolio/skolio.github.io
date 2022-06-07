@@ -4,6 +4,9 @@ on:
   issues:
     types:
       - labeled
+
+env:
+  internal_labels: '["content", "design", "technical"]'
       
 jobs:
   check-labels:
@@ -15,7 +18,7 @@ jobs:
       - name: Check if internal issue type
         id: internal
         run: |
-          echo '::set-output name=internal::${{ contains(fromJSON(["content", "design", "technical"]), github.event.label) }}' && \
+          echo '::set-output name=internal::${{ contains(fromJSON(env.internal_labels), github.event.label) }}' && \
           echo '::set-output name=label::${{ github.event.label }}'
       - name: Check if organization member
         id: external
