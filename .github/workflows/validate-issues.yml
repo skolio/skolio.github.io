@@ -22,7 +22,7 @@ jobs:
           echo '::set-output name=label::${{ github.event.label.name }}'
       - name: Check if organization member
         id: external
-        if: steps.internal.outputs.internal == true 
+        if: steps.internal.outputs.internal == 'true' 
         uses: jamessingleton/is-organization-member@1.0.1
         with:
           organization: skolio
@@ -30,13 +30,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Label invalid issues
         uses: andymckay/labeler@1.0.4
-        if: steps.internal.outputs.internal == true && steps.external.outputs.result == false
+        if: steps.internal.outputs.internal == 'true' && steps.external.outputs.result == 'false'
         with:
           add-labels: "invalid"
           remove-labels: ${{ steps.internal.outputs.label }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Close invalid issues
-        if: steps.internal.outputs.internal == true && steps.external.outputs.result == false
+        if: steps.internal.outputs.internal == 'true' && steps.external.outputs.result == 'false'
         uses: peter-evans/close-issue@v2
         with:
             comment: |
