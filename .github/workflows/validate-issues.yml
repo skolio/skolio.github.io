@@ -21,7 +21,7 @@ jobs:
       - name: Check if internal label
         id: init
         run: echo '::set-output name=applicable::${{ contains(fromJSON(env.internal_labels), github.event.label.name) }}'
-      - name: Check if organization membe
+      - name: Check if organization member
         if: steps.init.outputs.applicable == 'true'
         id: validate
         uses: jamessingleton/is-organization-member@1.0.1
@@ -69,5 +69,5 @@ jobs:
         if: contains(fromJSON(${{ env.move_labels }}), github.event.label.name)
         uses: srggrs/assign-one-project-github-action@1.2.1
         with:
-          project: 'https://github.com/skolio/skolio.github.io/projects/3'
-          column_name: 'To do'
+          project: https://github.com/skolio/skolio.github.io/projects/1
+          column_name: To do
