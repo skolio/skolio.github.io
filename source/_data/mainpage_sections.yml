@@ -13,3 +13,4 @@
 - id: contact
   file: contact.html
   styling: contact.css
+  bg-image: section-divider.svg
