@@ -1,16 +1,25 @@
-<div class="FlexDiv Footer_Container">
-    <div>
-        <h3>Skolio</h3>
-        <p>We've got your back.</p>
-        <button>Google Play</button>
-        <button>App Store</button>
+<div class="FooterWrapper">
+    <div class="ImageWrapper">
+        <img src="assets/images/footer-background.png" alt="Hintergrundbild für den Footer">
     </div>
-    <div>
-        <nav>
+    <div class="FlexDiv container footer_ContentWrapper">
+        <div class="footer_Brand">
+            <img src="assets/images/Skolio_Slogan.svg">
+        </div>
+        <div class="footer_Pages">
             {% for site in site.data.footer_navigation %}
             <a href="{{site.url}}">{{site.title}}</a>
             {% endfor %}
-        </nav>
+        </div>
+        <div class="footer_Links">
+            <a class="googlePlay" href='https://play.google.com/store/apps/details?id=com.eryushion.skolio&hl=de&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                <img alt='Jetzt bei Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png'/>
+            </a>
+            <a class="appStore" href="https://apps.apple.com/us/app/skolio/id1574215463?itsct=apps_box_badge&amp;itscg=30200">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?&amp;releaseDate=1630713600&h=42726142a38a4714dd146f54fd1a3888" alt="Download on the App Store">
+            </a>
+        </div>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
