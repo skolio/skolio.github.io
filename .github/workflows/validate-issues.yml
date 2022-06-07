@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-    if: contains(fromJSON(env.internal_labels), github.event.label.name) 
+    if: contains(fromJSON(${{env.internal_labels}}), github.event.label.name) 
     steps:
       - name: Check if organization member
         id: validate
@@ -56,13 +56,13 @@ jobs:
       issues: write
     steps: 
       - name: Close invalid issues
-        if: contains(fromJSON(env.close_labels), github.event.label.name)
+        if: contains(fromJSON(${{env.close_labels}}), github.event.label.name)
         uses: peter-evans/close-issue@v2
         with:
           comment: Automatically closing this issue as ${{ github.event.label.name }}
       
       - name: Move valid issues to Project board
-        if: contains(fromJSON(env.move_labels), github.event.label.name)
+        if: contains(fromJSON(${{env.move_labels}}), github.event.label.name)
         uses: srggrs/assign-one-project-github-action@1.2.1
         with:
           project: 'https://github.com/skolio/skolio.github.io/projects/3'
