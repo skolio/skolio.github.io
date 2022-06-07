@@ -3,8 +3,7 @@ description: Tasks for technical changes, additions or removals relating to webs
 title: "[Technical]: "
 labels: ["technical"]
 assignees:
-  - annNau
-  - steinimo
+  - lenkva
 body:
   - type: textarea
     id: content
