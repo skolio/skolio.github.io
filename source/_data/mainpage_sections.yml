@@ -9,6 +9,7 @@
 - id: physio
   file: physio.html
   styling: physio.css
+  classes: FlexDiv
 - id: contact
   file: contact.html
   styling: contact.css

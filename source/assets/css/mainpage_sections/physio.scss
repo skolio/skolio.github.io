@@ -1,3 +1,17 @@
 ---
 ---
 /* Main page, section physio Styling */
+.physio_TextContainer {
+  width: 50%;
+}
+
+.physio_ImgContainer {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 70%;
+  }
+}
