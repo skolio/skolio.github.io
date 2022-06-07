@@ -1,4 +1,3 @@
-<!-- Debug comment to see if component is loaded at all -->
 {% for section in include.sections %}
 {% capture file %}{{include.file-prefix}}/{{section.file}}{% endcapture %}
 <div class="SectionWrapper">
@@ -7,8 +6,8 @@
     {% endif %}
 
     {% if section.bg-image %}
-    <div class="imageWrapper">
-        <img src="{{section.bg-image}}" alt="Background image for the section">
+    <div class="ImageWrapper">
+        <img src="assets/images/{{section.bg-image}}" alt="Background image for the section">
     </div>
     <!-- Placeholder for image wrapper div -->
     {% endif %}
