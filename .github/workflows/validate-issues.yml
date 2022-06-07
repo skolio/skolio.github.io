@@ -1,20 +1,21 @@
 #Mark issues from Task templates invalid if they're created by members from outside the team
-name: Mark invalid issue label use
+name: Validate Issues
 on:
   issues:
     types:
       - labeled
       
 jobs:
-  label_issues:
+  check-labels:
+    name: Check Issue Labels
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
       - name: Check if internal issue type
         id: internal
-        run: | 
-          echo '::set-output name=internal::${{ contains(["content", "design", "technical"], github.event.label) }}'
+        run: |
+          echo '::set-output name=internal::${{ contains(["content", "design", "technical"], github.event.label) }}' && \
           echo '::set-output name=label::${{ github.event.label }}'
       - name: Check if organization member
         id: external
