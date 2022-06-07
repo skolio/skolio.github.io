@@ -36,7 +36,7 @@ jobs:
         uses: peter-evans/close-issue@v2
         with:
             comment: |
-            [Team] Issue Templates and the labels content, design and technical are intended for internal use by organization members only.
-            Please use Templates marked with [Public] and refrain from adding any additional labels on your own. 
-            Automatically closing this issue.
+              [Team] Issue Templates and the labels content, design and technical are intended for internal use by organization members only.
+              Please use Templates marked with [Public] and refrain from adding any additional labels on your own. 
+              Automatically closing this issue.
       
