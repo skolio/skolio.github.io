@@ -1,0 +1,41 @@
+name: Accessibility Issues
+description: Issues with the accessibility of the website
+title: "[Acessibility]: "
+labels: ["accessibility"]
+assignees:
+  - annNau
+  - steinimo
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to notify us of Accessibility problems!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Where does the problem occurr?
+      description: |
+        Describe, what part of page the issue or problem appears on.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Problem Description: What's wrong?"
+      description: What did you do? What did you expect to happen? What happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: user-agent
+    attributes:
+      label: User Agent
+      description: What tools, browsers or user agents are you using?
+      placeholder: ex. Screenreader Web Anywhere, Windows High Contrast Mode 
