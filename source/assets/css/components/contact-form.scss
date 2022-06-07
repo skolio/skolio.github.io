@@ -1,0 +1,21 @@
+---
+---
+/* Components, contact-form Styling */
+.FormWrapper {
+  position: relative;
+
+  p {
+    width: 50%;
+  }
+}
+.FormImage {
+  position: absolute;
+  top: -125px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 50%;
+  }
+}
