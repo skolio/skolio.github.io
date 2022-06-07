@@ -1,0 +1,24 @@
+name: Technical Change
+description: Tasks for technical changes, additions or removals relating to website or repository
+title: "[Technical]: "
+labels: ["technical"]
+assignees:
+  - annNau
+  - steinimo
+body:
+  - type: textarea
+    id: content
+    attributes:
+      label: Change Description
+    validations:
+      required: true
+  - type: textarea
+    id: info
+    attributes:
+      label: Additional Comments
+      description: Notes about the design context, scope, presentation etc.
+  - type: textarea
+    id: tech
+    attributes:
+      label: Technical notes
+      description: Notes or ideas about possible technical details of the change

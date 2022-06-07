@@ -1,0 +1,24 @@
+name: Content Change
+description: Tasks for content changes, additions or removals
+title: "[Content]: "
+labels: ["content"]
+assignees:
+  - steinimo
+  - annNau
+body:
+  - type: textarea
+    id: content
+    attributes:
+      label: Content Summary
+    validations:
+      required: true
+  - type: textarea
+    id: info
+    attributes:
+      label: Additional Comments
+      description: Notes about the content, presentation etc.
+  - type: textarea
+    id: tech
+    attributes:
+      label: Technical notes
+      description: Notes or ideas about possible technical details of the change
