@@ -1,0 +1,42 @@
+#Mark issues from Task templates invalid if they're created by members from outside the team
+name: Mark invalid issue label use
+on:
+  issues:
+    types:
+      - labeled
+      
+jobs:
+  label_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Check if internal issue type
+        id: internal
+        run: | 
+          echo '::set-output name=internal::${{ contains(["content", "design", "technical"], github.event.label) }}'
+          echo '::set-output name=label::${{ github.event.label }}'
+      - name: Check if organization member
+        id: external
+        if: steps.internal.outputs.internal == true 
+        uses: jamessingleton/is-organization-member@v1
+        with:
+          organization: skolio
+          username: ${{ github.event.issue.user.login }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Label invalid issues
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        if: steps.internal.outputs.internal == true && steps.external.outputs.result == false
+        with:
+          add-labels: "invalid"
+          remove-labels: ${{ steps.internal.outputs.label }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Close invalid issues
+        if: steps.internal.outputs.internal == true && steps.external.outputs.result == false
+        uses: peter-evans/close-issue@v2
+        with:
+            comment: |
+            [Team] Issue Templates and the labels content, design and technical are intended for internal use by organization members only.
+            Please use Templates marked with [Public] and refrain from adding any additional labels on your own. 
+            Automatically closing this issue.
+      
