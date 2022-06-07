@@ -62,12 +62,11 @@ jobs:
       - name: DEBUG print condition
         run: |
           echo "Label: ${{ github.event.label.name }}, CloseLabels: $close_labels"
-      - name: Close invalid issues
-        if: never()
-        #if: contains(fromJSON(${{ env.close_labels }}), github.event.label.name)
-        uses: peter-evans/close-issue@v2
-        with:
-          comment: Automatically closing this issue as ${{ github.event.label.name }}
+      # - name: Close invalid issues
+      #   if: contains(fromJSON(${{ env.close_labels }}), github.event.label.name)
+      #   uses: peter-evans/close-issue@v2
+      #   with:
+      #     comment: Automatically closing this issue as ${{ github.event.label.name }}
       
       - name: Move valid issues to Project board
         if: contains(fromJSON(${{ env.move_labels }}), github.event.label.name)
