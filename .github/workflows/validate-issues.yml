@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+    outputs:
+      applicable: ${{ steps.init.outputs.applicable }}
+      valid: ${{ steps.validate.outputs.result }}
     steps:
       - name: Check if internal label
         id: init
@@ -45,9 +48,6 @@ jobs:
               This issue has been marked as invalid and will be closed. 
               [Team] Issue Templates and the labels content, design and technical are intended for internal use by organization members only.
               Please use Templates marked with [Public] and refrain from adding any additional labels on your own. 
-    outputs:
-      applicable: ${{ steps.init.outputs.applicable }}
-      valid: ${{ steps.validate.outputs.result }}
       
   move-issues:
     name: Move or Close Issues by label
@@ -61,7 +61,11 @@ jobs:
     steps: 
       - name: DEBUG print condition
         run: |
-          echo "Label: ${{ github.event.label.name }}, CloseLabels: $close_labels"
+          echo "Label: ${{ github.event.label.name }}
+            CloseLabels: $close_labels 
+            Close Condition: ${{ contains(fromJSON(env.close_labels), github.event.label.name) }}
+            MoveLabels: $move_labels
+            Move Condition: ${{ contains(fromJSON(env.move_labels), github.event.label.name) }}"
       # - name: Close invalid issues
       #   if: contains(fromJSON(${{ env.close_labels }}), github.event.label.name)
       #   uses: peter-evans/close-issue@v2
@@ -70,7 +74,7 @@ jobs:
       
       - name: Move valid issues to Project board
         if: contains(fromJSON(${{ env.move_labels }}), github.event.label.name)
-        uses: srggrs/assign-one-project-github-action@1.2.1
+        uses: srggrs/assign-one-project-github-action@1.3.1
         with:
-          project: https://github.com/skolio/skolio.github.io/projects/1
-          column_name: To do
+          project: 'https://github.com/skolio/skolio.github.io/projects/1'
+          column_name: 'To do'
