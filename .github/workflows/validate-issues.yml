@@ -88,10 +88,10 @@ jobs:
 
       - name: Move valid issues to Project board
         if: needs.check-labels.outputs.valid == 'true' && contains(fromJSON( ${{ env.move_labels }} ), github.event.label.name)
-        run: echo Movement condition triggered
-        # uses: alex-page/github-project-automation-plus@v0.8.1
-        # with:
-        #   project: Workload Tracker
-        #   column: To do
-        #   action: add
-        #   repo-token: ${{ secrets.GHPROJECT_TOKEN }}
+        # run: echo Movement condition triggered
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: Workload Tracker
+          column: To do
+          action: add
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
