@@ -7,7 +7,7 @@ on:
 
 env:
   internal_labels: '["content", "design", "technical"]'
-  move_labels: '["bug", "accessibility", "content", "design", "technical"]'
+  classified_labels: '["bug", "accessibility", "content", "design", "technical"]'
   close_labels: '["duplicate", "invalid"]'
   issue_number: ${{ github.event.number }}
       
@@ -66,10 +66,10 @@ jobs:
         run: |
           echo 'Valid: ${{ needs.check-labels.outputs.valid }}
             Label: ${{ github.event.label.name }} 
-            CloseLabels: ${{ env.close_labels }}
+            Close Labels: ${{ env.close_labels }}
             Close Condition: ${{ contains(fromJSON(env.close_labels), github.event.label.name) }} 
-            MoveLabels: ${{ env.move_labels }}
-            Move Condition: ${{ contains(fromJSON(env.move_labels), github.event.label.name) }}'
+            Classified Labels: ${{ env.classified_labels }}
+            Move Condition: ${{ contains(fromJSON(env.classified_labels), github.event.label.name) }}'
       
       - name: Close invalid issues
         if: needs.check-labels.outputs.valid == 'false' || contains(fromJSON(env.close_labels), github.event.label.name) #github.event.label.name == duplicate || github.event.label.name == invalid
@@ -77,20 +77,20 @@ jobs:
         with:
           comment: Automatically closing this issue as ${{ github.event.label.name }}
 
-      - name: Move valid issues to Project board
-        if: needs.check-labels.outputs.valid == 'true' && contains(fromJSON( ${{ env.move_labels }} ), github.event.label.name)
-        uses: alex-page/github-project-automation-plus@v0.8.1
-        with:
-          project: Workload Tracker
-          column: To do
-          action: add
-          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
-
-      - name: Move unclassified issues to classification column
-        if: needs.check-labels.outputs.valid == 'true' && github.event.label.name == 'classify'
+      - name: Add valid issues to project board
+        if: needs.check-labels.outputs.valid == 'true'
         uses: alex-page/github-project-automation-plus@v0.8.1
         with:
           project: Workload Tracker
           column: Classification
           action: add
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
+
+      - name: Move classified issues to Project board
+        if: needs.check-labels.outputs.valid == 'true' && contains(fromJSON(env.classified_labels), github.event.label.name)
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: Workload Tracker
+          column: To do
+          action: update
           repo-token: ${{ secrets.GHPROJECT_TOKEN }}
