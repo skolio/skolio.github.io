@@ -95,3 +95,12 @@ jobs:
           column: To do
           action: add
           repo-token: ${{ secrets.GHPROJECT_TOKEN }}
+
+      - name: Move unclassified issues to classification column
+        if: needs.check-labels.outputs.valid == 'true' && github.event.label.name == classify
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: Workload Tracker
+          column: Classification
+          action: add
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
