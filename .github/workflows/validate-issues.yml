@@ -65,11 +65,11 @@ jobs:
     steps: 
       - name: DEBUG print condition
         run: |
-          echo '
+          echo 'Valid: ${{ needs.check-labels.outputs.valid }}
             Label: ${{ github.event.label.name }} 
-            CloseLabels: $close_labels 
+            CloseLabels: ${{ env.close_labels }}
             Close Condition: ${{ contains(fromJSON(env.close_labels), github.event.label.name) }} 
-            MoveLabels: $move_labels 
+            MoveLabels: ${{ env.move_labels }}
             Move Condition: ${{ contains(fromJSON(env.move_labels), github.event.label.name) }}'
       
       - name: Close invalid issues
