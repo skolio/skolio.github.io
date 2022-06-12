@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Check if internal label
         id: check-label
-        run: echo '::set-output name=result::${{ contains(fromJSON(env.internal_labels), github.event.label.name) }}'
+        run: echo "::set-output name=result::${{ contains(fromJSON(env.internal_labels), github.event.label.name) }}"
       - name: Check if organization member
         id: check-member
         uses: jamessingleton/is-organization-member@1.0.1
@@ -32,11 +32,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Debug results
-        run: "echo 'Internal Label: ${{ steps.check-label.outputs.result }}, Internal member: ${{ steps.check-member.outputs.result }}"
+        run: echo 'Internal Label ${{ steps.check-label.outputs.result }}, Internal member ${{ steps.check-member.outputs.result }}'
       
       - name: Validate issue
         id: validate-issue
-        run: echo '::set-output name=result::${{ steps.check-label.outputs.result == "false" || steps.check-member.outputs.result == "true" }}'
+        run: echo "::set-output name=result::${{ steps.check-label.outputs.result == "false" || steps.check-member.outputs.result == "true" }}"
       
       - name: Label invalid issues
         if: steps.validate-issue.outputs.result == 'false'
@@ -66,14 +66,16 @@ jobs:
     steps: 
       - name: DEBUG print condition
         run: |
-          echo "Label: ${{ github.event.label.name }}
+          echo '
+            Label: ${{ github.event.label.name }} 
             CloseLabels: $close_labels 
-            Close Condition: ${{ contains(fromJSON(env.close_labels), github.event.label.name) }}
-            MoveLabels: $move_labels
-            Move Condition: ${{ contains(fromJSON(env.move_labels), github.event.label.name) }}"
+            Close Condition: ${{ contains(fromJSON(env.close_labels), github.event.label.name) }} 
+            MoveLabels: $move_labels 
+            Move Condition: ${{ contains(fromJSON(env.move_labels), github.event.label.name) }}''
       
-      # - name: Close invalid issues
-      #   if: needs.check-labels.outputs.valid == "false" || github.event.label.name == "duplicate" || github.event.label.name == "invalid" 
+      - name: Close invalid issues
+        if: needs.check-labels.outputs.valid == "false" || github.event.label.name == "duplicate" || github.event.label.name == "invalid" 
+        run: echo Closing condition triggered
       #   uses: peter-evans/close-issue@v2
       #   with:
       #     comment: Automatically closing this issue as ${{ github.event.label.name }}
@@ -87,9 +89,10 @@ jobs:
 
       - name: Move valid issues to Project board
         if: contains(fromJSON( ${{ env.move_labels }} ), github.event.label.name)
-        uses: alex-page/github-project-automation-plus@v0.8.1
-        with:
-          project: Workload Tracker
-          column: To do
-          action: add
-          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
+        run: echo Movement condition triggered
+        # uses: alex-page/github-project-automation-plus@v0.8.1
+        # with:
+        #   project: Workload Tracker
+        #   column: To do
+        #   action: add
+        #   repo-token: ${{ secrets.GHPROJECT_TOKEN }}
