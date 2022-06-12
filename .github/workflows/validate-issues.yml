@@ -55,7 +55,6 @@ jobs:
     needs: check-labels
     if: needs.check-labels.outputs.applicable == 'false' || needs.check-labels.outputs.valid == 'true'
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       issues: write
     steps: 
@@ -66,15 +65,25 @@ jobs:
             Close Condition: ${{ contains(fromJSON(env.close_labels), github.event.label.name) }}
             MoveLabels: $move_labels
             Move Condition: ${{ contains(fromJSON(env.move_labels), github.event.label.name) }}"
+
       # - name: Close invalid issues
       #   if: contains(fromJSON(${{ env.close_labels }}), github.event.label.name)
       #   uses: peter-evans/close-issue@v2
       #   with:
       #     comment: Automatically closing this issue as ${{ github.event.label.name }}
       
+      # - name: Move valid issues to Project board
+      #   if: contains(fromJSON(${{ env.move_labels }}), github.event.label.name)
+      #   uses: srggrs/assign-one-project-github-action@1.3.1
+      #   with:
+      #     project: 'https://github.com/skolio/skolio.github.io/projects/1'
+      #     column_name: 'To do'
+
       - name: Move valid issues to Project board
-        if: contains(fromJSON(${{ env.move_labels }}), github.event.label.name)
-        uses: srggrs/assign-one-project-github-action@1.3.1
+        if: contains(fromJSON( ${{ env.move_labels }} ), github.event.label.name)
+        uses: alex-page/github-project-automation-plus@v0.8.1
         with:
-          project: 'https://github.com/skolio/skolio.github.io/projects/1'
-          column_name: 'To do'
+          project: Workload Tracker
+          column: To do
+          action: add
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
