@@ -1,35 +1,48 @@
-<div class="FlexDiv Header_Container">
-    <div>
-        <img src="" alt="Skolio Icon">
-    </div>
-    <div>
-        <nav>
-            {% for item in site.data.header_navigation %}
-            {% if item.subitems %}
-            <div class="dropdown">
-            {% endif %}
-                <a class="dropbtn"
-                   {% if item.url %}
-                   href="{{ item.url }}"
-                   {% endif %}
-                >
-                    {{ item.title }}
-                </a>
+<div class="Header_Container">
+    <div class="Header_Background"></div>
+    <div class="container FlexDiv">
+        <div class="Header_BrandContainer">
+            <img src="assets/images/skolio-logo.svg" alt="Skolio Icon">
+        </div>
+        <div class="Header_NavContainer">
+            <nav>
+                {% for item in site.data.header_navigation %}
+                    {% if item.subitems %}
+                    <div class="dropdown">
+                    {% endif %}
 
-            {% if item.subitems %}
-                <div class="dropdown-content">
-                    {% for subitem in item.subitems %}
-                    <a
-                        {% if subitem.url %}
-                        href="{{ subitem.url }}"
-                        {% endif %}>
-                        {{ subitem.title }}
-                    </a>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </nav>
+                    {% if item.type == "button" %}
+                        <button class="{{ item.color }}">
+                            <a href="{{ item.url }}">
+                                {{ item.title }}
+                            </a>
+                        </button>
+                    {% else %}
+                        <a class="navBtn"
+                            {% if item.url %}
+                            href="{{ item.url }}"
+                            {% endif %}
+                        >
+                            {{ item.title }}
+                        </a>
+                    {% endif %}
+
+                    {% if item.subitems %}
+                        <div class="dropdown-content">
+                        {% for subitem in item.subitems %}
+                            <a
+                                {% if subitem.url %}
+                                href="{{ subitem.url }}"
+                                {% endif %}
+                            >
+                                {{ subitem.title }}
+                            </a>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </nav>
+        </div>
     </div>
 </div>
