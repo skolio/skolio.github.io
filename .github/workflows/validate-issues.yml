@@ -1,0 +1,105 @@
+#Mark issues from Task templates invalid if they're created by members from outside the team
+name: Validate Issues
+on:
+  issues:
+    types:
+      - labeled
+
+env:
+  internal_labels: '["content", "design", "technical"]'
+  classified_labels: '["bug", "accessibility", "content", "design", "technical"]'
+  close_labels: '["duplicate", "invalid", "wontfix"]'
+  ignored_labels: '["documentation", "question"]'
+  issue_number: ${{ github.event.number }}
+      
+jobs:
+  check-labels:
+    name: Check Issue Label
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    outputs:
+      relevant: ${{ steps.check-relevant.outputs.result }}
+      valid: ${{ steps.validate-issue.outputs.result }}
+    steps:
+      - name: Check if relevant label
+        id: check-relevant
+        run: echo "::set-output name=result::${{ !contains(fromJSON(env.ignored_labels), github.event.label.name)}}"
+      - name: Check if internal label
+        if: steps.check-relevant.outputs.result == 'true'
+        id: check-label
+        run: echo "::set-output name=result::${{ contains(fromJSON(env.internal_labels), github.event.label.name)}}"
+      - name: Check if organization member
+        if: steps.check-relevant.outputs.result == 'true'
+        id: check-member
+        uses: jamessingleton/is-organization-member@1.0.1
+        with:
+          organization: skolio
+          username: ${{ github.event.issue.user.login }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Debug results
+        run: echo 'Relevant ${{ steps.check-relevant.outputs.result }}, Internal Label ${{ steps.check-label.outputs.result }}, Internal member ${{ steps.check-member.outputs.result }}'
+      
+      - name: Validate issue
+        if: steps.check-relevant.outputs.result == 'true'
+        id: validate-issue
+        run: echo "::set-output name=result::${{ steps.check-label.outputs.result == 'false' || steps.check-member.outputs.result == 'true' }}"
+      
+      - name: Label invalid issues
+        if: steps.check-relevant.outputs.result == 'true' && steps.validate-issue.outputs.result == 'false'
+        uses: andymckay/labeler@1.0.4
+        with:
+          add-labels: "invalid"
+          remove-labels: ${{ github.event.label.name }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Comment on invalid issues
+        if: steps.check-relevant.outputs.result == 'true' && steps.validate-issue.outputs.result == 'false'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ env.issue_number }}
+          body: |
+              This issue has been marked as invalid and will be closed. 
+              [Team] Issue Templates and the labels content, design and technical are intended for internal use by organization members only.
+              Please use Templates marked with [Public] and refrain from adding any additional labels on your own. 
+      
+  move-issues:
+    name: Move or Close Issues by label
+    runs-on: ubuntu-latest
+    needs: check-labels
+    permissions:
+      issues: write
+    steps: 
+      - name: DEBUG print condition
+        run: |
+          echo 'Relevant: ${{ needs.check-labels.outputs.relevant }}
+            Valid: ${{ needs.check-labels.outputs.valid }}
+            Label: ${{ github.event.label.name }} 
+            Close Labels: ${{ env.close_labels }}
+            Close Condition: ${{ contains(fromJSON(env.close_labels), github.event.label.name) }} 
+            Classified Labels: ${{ env.classified_labels }}
+            Move Condition: ${{ contains(fromJSON(env.classified_labels), github.event.label.name) }}'
+      
+      - name: Close invalid issues
+        if: needs.check-labels.outputs.relevant && (needs.check-labels.outputs.valid == 'false' || contains(fromJSON(env.close_labels), github.event.label.name))
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: Automatically closing this issue as ${{ github.event.label.name }}
+
+      - name: Add valid issues to project board
+        if: needs.check-labels.outputs.relevant && needs.check-labels.outputs.valid == 'true'
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: Workload Tracker
+          column: Classification
+          action: add
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
+
+      - name: Move classified issues to Project board
+        if: needs.check-labels.outputs.relevant && needs.check-labels.outputs.valid == 'true' && contains(fromJSON(env.classified_labels), github.event.label.name)
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: Workload Tracker
+          column: To do
+          action: update
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}

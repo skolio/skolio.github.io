@@ -1,13 +1,20 @@
-# Test site under different configurations to ensure responsiveness and compatibility
-name: Cypress Matrix Test
+name: Publish website changes
 
+# Controls when the workflow will run
 on:
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      skip-tests:
+        description: Skip Integration Tests
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   test:
-    name: Run Test Configuration
-    if: github.event_name == 'workflow_dispatch' || (github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'publish')
+    name: Integration Tests
+    if: ${{ !github.event.inputs.skip-tests }}
     strategy:
       fail-fast: true
       matrix:
@@ -27,7 +34,7 @@ jobs:
     steps:
       # Checkout git branch
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.0.2
 
       # Automatic setup of Ruby environment and dependencies
       - name: Perform Ruby Setup
@@ -46,13 +53,29 @@ jobs:
           config: viewportHeight=${{ matrix.viewport_height }},viewportWidth=${{ matrix.viewport_width }}
 
   verify:
-    name: All tests successful
-    if: ${{ always() }}
+    name: Integration Tests Completed
+    if: ${{ !github.event.inputs.skip-tests }}
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Print Matrix Test Result
-        run: echo ${{ needs.test.result }}
       - name: Verify Matrix Test Result
         if: ${{ needs.test.result != 'success' }}
         run: echo "Tests failed!" && exit 1
+
+  publish:
+    name: Publish Website Changes
+    needs: verify
+    runs-on: ubuntu-latest
+    if: ${{ always () }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@master
+
+      - name: Push changes to Publish branch
+        if: ${{ !github.events.inputs.skip-tests || needs.verify.result == 'success' }}
+        uses: devmasx/merge-branch@v1.4.0
+        with:
+          type: now
+          target_branch: publish
+          github_token: ${{ github.token }}
+    

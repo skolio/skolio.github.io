@@ -6,3 +6,4 @@ _site
 .idea/
 /cypress/videos/
 /node_modules/
+.github/GHPROJECT_TOKEN
