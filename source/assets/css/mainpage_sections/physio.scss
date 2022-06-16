@@ -2,16 +2,24 @@
 ---
 /* Main page, section physio Styling */
 .physio_TextContainer {
-  width: 50%;
+  display: flex;
+  justify-content: right;
+
+  div {
+    width: 50%;
+  }
 }
 
 .physio_ImgContainer {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 45%;
+  height: 90%;
+  position: absolute;
+  left: 0;
+  top: 40px;
 
   img {
-    height: 70%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
