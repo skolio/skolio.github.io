@@ -1,22 +1,21 @@
-name: Content Change
-description: Tasks for content changes, additions or removals
-title: "[Content]: "
-labels: ["content"]
+name: "[Team] Technical Change"
+description: Tasks for technical changes, additions or removals relating to website or repository
+title: "[Technical]: "
+labels: ["technical"]
 assignees:
-  - steinimo
-  - annNau
+  - lenkva
 body:
   - type: textarea
     id: content
     attributes:
-      label: Content Summary
+      label: Change Description
     validations:
       required: true
   - type: textarea
     id: info
     attributes:
       label: Additional Comments
-      description: Notes about the content, presentation etc.
+      description: Notes about the design context, scope, presentation etc.
   - type: textarea
     id: tech
     attributes:

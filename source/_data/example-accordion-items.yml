@@ -1,0 +1,9 @@
+- id-prefix: example-accordion-item-1
+  title: Example Entry 1
+  source: examples/example-accordion-item.md
+- id-prefix: example-accordion-item-2
+  title: Example Entry 2
+  source: examples/example-accordion-item.md
+- id-prefix: example-accordion-item-3
+  title: Example Entry 3
+  source: examples/example-accordion-item.md

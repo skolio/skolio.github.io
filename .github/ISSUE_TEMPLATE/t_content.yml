@@ -1,22 +1,22 @@
-name: Design Change
-description: Tasks for design and styling changes or improvements
-title: "[Design]: "
-labels: ["design"]
+name: "[Team] Content Change"
+description: Tasks for content changes, additions or removals
+title: "[Content]: "
+labels: ["content"]
 assignees:
-  - annNau
   - steinimo
+  - annNau
 body:
   - type: textarea
     id: content
     attributes:
-      label: Change Description
+      label: Content Summary
     validations:
       required: true
   - type: textarea
     id: info
     attributes:
       label: Additional Comments
-      description: Notes about the design context, scope, presentation etc.
+      description: Notes about the content, presentation etc.
   - type: textarea
     id: tech
     attributes:

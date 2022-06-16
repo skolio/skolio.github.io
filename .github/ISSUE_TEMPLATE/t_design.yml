@@ -1,9 +1,10 @@
-name: Technical Change
-description: Tasks for technical changes, additions or removals relating to website or repository
-title: "[Technical]: "
-labels: ["technical"]
+name: "[Team] Design Change"
+description: Tasks for design and styling changes or improvements
+title: "[Design]: "
+labels: ["design"]
 assignees:
-  - lenkva
+  - annNau
+  - steinimo
 body:
   - type: textarea
     id: content
