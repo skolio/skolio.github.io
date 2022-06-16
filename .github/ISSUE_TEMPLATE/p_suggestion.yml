@@ -1,0 +1,42 @@
+name: "[Public] Suggested Improvement"
+description: General improvement suggestions for the website
+title: "[Suggestion]: "
+labels: ["classify"]
+assignees:
+  - lenkva
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to contribute to our web presentation!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: target
+    attributes:
+      label: What is your suggestion about?
+      description: |
+        Which feature, page or component would you like to see improved? 
+        If possible, supply a link and description of the page or component in question.
+      placeholder: Subject of improvement
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: "What's your suggestion?"
+      description: What would you like to see changed? 
+      placeholder: Description of suggested improvement
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional comments
+      description: If there are any additional notes about the improvement, e.g. reasoning behind the suggestion, put them here.
