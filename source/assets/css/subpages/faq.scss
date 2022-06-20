@@ -1,0 +1,62 @@
+---
+---
+/* FAQ page Styling */
+.faq_IntroParagraph {
+  margin-bottom: 40px;
+}
+
+.accordion-item {
+  border-style: none;
+  border-top: 1px solid #CDCDCD;
+}
+
+.accordion-item:first-of-type {
+  border-radius: unset;
+}
+
+.accordion-item:not(:first-of-type) {
+  border-style: none;
+  border-top: 1px solid #CDCDCD;
+}
+
+.accordion-item:last-of-type {
+  border-radius: unset;
+  border-bottom: 1px solid #CDCDCD;
+}
+
+.accordion-item:first-of-type .accordion-button {
+  border-radius: unset;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-radius: unset;
+}
+
+.accordion-button {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgb(254, 212, 152);
+}
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: unset;
+  box-shadow: none;
+}
+
+.accordion-button::after {
+  background-image: url('../../images/accordion-button.svg');
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url('../../images/accordion-button.svg');
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  font-size: 16px;
+  line-height: 24px;
+}
