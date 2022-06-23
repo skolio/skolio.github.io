@@ -1,5 +1,8 @@
 ---
 ---
+
+@import "breakpoints";
+
 /* Main page, section patients Styling */
 .patients_TextContainer {
   width: 50%;
@@ -9,6 +12,14 @@
   width: 50%;
   display: flex;
   justify-content: center;
+
+  @include media-breakpoint-down(lg) {
+    width: 30%;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 10%;
+  }
 
   img {
     width: inherit;
