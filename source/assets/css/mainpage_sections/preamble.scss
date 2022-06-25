@@ -1,10 +1,17 @@
 ---
 ---
+
+@import "breakpoints";
+
 /* Main page, preamble Styling */
 .Preamble_Container {
   width: 100%;
   height: 100vh;
   position: relative;
+
+  @include media-breakpoint-down(sm) {
+    height: fit-content;
+  }
 }
 
 .Preamble_Background {
@@ -29,10 +36,23 @@
   img {
     width: 25%;
   }
+
+  @include media-breakpoint-down(sm) {
+    padding: 10px 0;
+
+    img {
+      width: 50%;
+    }
+  }
 }
 
 .Preamble_ContentContainer {
   height: 80vh;
+
+  @include media-breakpoint-down(sm) {
+    height: fit-content;
+    flex-direction: column;
+  }
 }
 
 .Preamble_ContentWrapper {
@@ -40,6 +60,11 @@
   padding-left: 10%;
   justify-content: center;
   align-items: start;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    padding: 0 30px;
+  }
 }
 
 .Preamble_Links {
@@ -67,4 +92,13 @@
   width: 50%;
   display: flex;
   justify-content: center;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+    }
+  }
 }
