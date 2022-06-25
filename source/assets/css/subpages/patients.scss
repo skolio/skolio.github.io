@@ -49,3 +49,21 @@
   width: 50%;
   align-self: center;
 }
+
+.Patients_MessageText {
+  width: 50%;
+  align-self: center;
+}
+
+.Patients_MessageImg {
+  width: 45%;
+  height: 90%;
+  position: absolute;
+  right: 0;
+  top: 40px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
