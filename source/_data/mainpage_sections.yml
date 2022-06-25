@@ -4,11 +4,12 @@
 - id: patients
   file: patients.html
   styling: patients.css
-  bg-image: patients-background.png
+  bg-image: patients-background.svg
   classes: FlexDiv
 - id: physio
   file: physio.html
   styling: physio.css
-- id: contact
+  classes: FlexDiv
+- id: kontakt
   file: contact.html
   styling: contact.css

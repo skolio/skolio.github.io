@@ -1,12 +1,14 @@
 - title: Home
   url: /
 - title: Skolio-App
-  url: app.html
+  url: skolioApp.html
 - title: Für Betroffene
-  url: patients.html
+  url: betroffene.html
 - title: Für Fachleute
-  url: specialists.html
+  url: fachleute.html
 - title: FAQ
   url: faq.html
 - title: Kontakt
-  url: /
+  url: /#index-kontakt
+  type: button
+  color: green

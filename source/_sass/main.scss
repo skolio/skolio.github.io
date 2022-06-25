@@ -47,7 +47,7 @@ p.small {
 }
 
 .SectionWrapper {
-  padding: 5% 0;
+  padding: 60px 0;
   position: relative;
 }
 
@@ -55,13 +55,39 @@ p.small {
   position: absolute;
   top: 0;
   z-index: -50;
+  width: 100%;
+  height: 100%;
 
   img {
     height: 100%;
     width: 100%;
+    object-fit: cover;
   }
 }
 
+/* General styling for links */
+a {
+  color: $skolio-black;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: $skolio-black;
+}
+
+/* General styling for red links */
+a.red {
+  color: $skolio-red-default;
+}
+
+a.red:hover {
+  color: $skolio-red-hovered;
+}
+a.red:active {
+  color: $skolio-red-pressed;
+}
+
+/* General styling for buttons */
 button {
   font-family: Mulish-Bold, sans-serif;
   font-size: 16px;
@@ -73,12 +99,7 @@ button {
   border-radius: 20px;
 
   a {
-    color: $skolio-black;
     text-decoration: none;
-  }
-
-  a:hover {
-    color: $skolio-black;
   }
 }
 

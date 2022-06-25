@@ -9,9 +9,8 @@
   width: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   img {
-    height: 85%;
+    width: inherit;
   }
 }

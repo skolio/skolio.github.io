@@ -1,3 +1,46 @@
 ---
 ---
 /* Main page, section skolioApp Styling */
+.app_LowerContainer {
+  display: flex;
+  margin-top: 50px;
+}
+
+.app_ImageContainer {
+  width: 50%;
+  height: 100%;
+
+  img {
+    width: 90%;
+    object-fit: contain;
+  }
+}
+
+.app_FeatureContainer {
+  width: 50%;
+
+  div:first-child {
+    margin-top: 0;
+  }
+}
+
+.app_FeatureWrapper {
+  display: flex;
+  margin: 50px 0;
+  gap: 25px;
+}
+
+.app_FeatureIcon {
+  align-self: center;
+}
+
+.app_FeatureText {
+  p:nth-child(2) {
+    margin-bottom: 0;
+  }
+}
+
+.app_FeatureHeading {
+  font-family: "Mulish-Bold", sans-serif;
+  margin-bottom: 8px;
+}
