@@ -1,26 +1,32 @@
 <link rel="stylesheet" property="stylesheet" href="assets/css/components/contact-form.css">
 <div class="FormWrapper">
-    <p class="normal">Willst Du noch mehr über Skolio erfahren? Hast du Feedback für uns?
-        Schicke uns einfach eine Nachricht und wir antworten Dir.</p>
-    <div class="FormImage">
-        <img src="assets/images/spine-graphic.svg" alt="Grafik einer Wirbelsäule">
-    </div>
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name">
-    <br>
-    <label for="mail">E-Mail</label>
-    <input type="email" name="name" id="mail">
-    <br>
-    <label for="message">Nachricht an uns</label>
-    <br>
-    <textarea type="text" name="name" id="message"></textarea>
-    <br>
-    <input type="checkbox" name="dataPrivacy" id="dataPrivacy">
-    <label for="dataPrivacy">Ich stimme zu, dass meine Angaben aus dem Kontaktformular zur Beantwortung meiner Anfrage
-        erhoben und verarbeitet werden.<br>
-        Weitere Informationen hierzu in unserer
-        <a class="red" href="dataPrivacy.html">Datenschutzerklärung</a>
-    </label>
-    <br>
-    <button class="green">Absenden</button>
+    <p class="normal">
+        Willst Du noch mehr über Skolio erfahren? Hast du Feedback für uns?<br>
+        Schicke uns einfach eine Nachricht und wir antworten Dir.
+    </p>
+
+    <form method="post" action="https://forms.un-static.com/forms/fdc863fa8a49e5945c5258bd077ca5f5030fe57e">
+        <label class="form_SmallLabel" for="name">Name *</label><br>
+        <input class="form_TextInput" type="text" name="name" id="name" placeholder="Petra Physio" required>
+        <br>
+        <label class="form_SmallLabel" for="mail">E-Mail *</label><br>
+        <input class="form_TextInput" type="email" name="name" id="mail" placeholder="mail@mustermail.de" required>
+        <br>
+        <label class="form_SmallLabel" for="message">Nachricht an uns *</label><br>
+        <textarea type="text" name="name" id="message" required></textarea>
+        <br>
+        <div class="form_CheckboxContainer">
+            <input class="form_Checkbox" type="checkbox" name="dataPrivacy" id="dataPrivacy" required>
+            <label class="form_CheckboxLabel" for="dataPrivacy">
+                Ich stimme zu, dass meine Angaben aus dem Kontaktformular zur Beantwortung meiner Anfrage
+                erhoben und verarbeitet werden. Weitere Informationen hierzu in unserer
+                <a class="green" href="datenschutz.html">Datenschutzerklärung</a>. *
+            </label>
+        </div>
+        <button class="form_ContactBtn green" type="submit">
+            <img src="assets/images/contact-send-icon.svg" alt="Pfeil Icon">
+            Absenden
+        </button>
+        <span class="form_RequiredInfo">* Pflichtfelder</span>
+    </form>
 </div>
