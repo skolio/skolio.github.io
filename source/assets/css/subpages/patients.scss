@@ -1,0 +1,35 @@
+---
+---
+@import "colors";
+
+/* Patients page Styling */
+.Patients_IntroWrapper {
+  margin-top: 24px;
+  margin-bottom: 60px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Patients_IntroText {
+  width: 50%;
+}
+
+.Patients_IntroFacts {
+  width: 45%;
+}
+
+.Patients_FactContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.Patients_FactNumber {
+  font-family: "Mulish-Bold", sans-serif;
+  font-size: 48px;
+  line-height: 60px;
+  color: $skolio-red-800;
+
+  min-width: 120px;
+}
