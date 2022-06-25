@@ -31,6 +31,10 @@
   }
 }
 
+.Preamble_ContentContainer {
+  height: 80vh;
+}
+
 .Preamble_ContentWrapper {
   width: 50%;
   padding-left: 10%;
@@ -63,8 +67,4 @@
   width: 50%;
   display: flex;
   justify-content: center;
-
-  img {
-    width: 60%;
-  }
 }
