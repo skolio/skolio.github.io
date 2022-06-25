@@ -67,3 +67,69 @@
     object-fit: cover;
   }
 }
+
+.Patients_WhyUpperContainer {
+  padding-top: 60px;
+  position: relative;
+}
+
+.Patients_WhyBackground {
+  top: unset;
+  bottom: -90px;
+
+  img {
+    object-fit: contain;
+    transform: scaleY(-1);
+  }
+}
+
+.Patients_WhyText {
+  width: 50%;
+  align-self: start;
+}
+
+.Patients_WhyLowerContainer {
+  padding-top: 60px;
+  position: relative;
+}
+
+.app_FeatureContainer {
+  width: 50%;
+
+  div:first-child {
+    margin-top: 0;
+  }
+}
+
+.app_FeatureWrapper {
+  display: flex;
+  margin: 50px 0;
+  gap: 25px;
+}
+
+.app_FeatureIcon {
+  align-self: center;
+}
+
+.app_FeatureText {
+  p:nth-child(2) {
+    margin-bottom: 0;
+  }
+}
+
+.app_FeatureHeading {
+  font-family: "Mulish-Bold", sans-serif;
+  margin-bottom: 8px;
+}
+
+.Patients_WhyImg {
+  width: 45%;
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
