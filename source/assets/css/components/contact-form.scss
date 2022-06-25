@@ -2,6 +2,7 @@
 ---
 
 @import "colors";
+@import "breakpoints";
 
 /* Components, contact-form Styling */
 .FormWrapper {
@@ -17,6 +18,19 @@
 
     margin-bottom: 16px;
     padding: 10px 16px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      br {
+        display: none;
+      }
+    }
   }
 }
 
@@ -35,6 +49,10 @@
 
   margin-bottom: 16px;
   padding: 10px 16px;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
 }
 
 .form_CheckboxContainer {
@@ -86,8 +104,21 @@
   img {
     margin-right: 10px;
   }
+
+  @include media-breakpoint-down(sm) {
+    width: 90%;
+    align-self: center;
+    margin-top: 25px;
+    margin-right: 0;
+  }
 }
 
 .form_RequiredInfo {
   font-style: italic;
+
+  @include media-breakpoint-down(sm) {
+    display: block;
+    width: 90%;
+    align-self: center;
+  }
 }
