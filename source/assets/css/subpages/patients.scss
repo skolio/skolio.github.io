@@ -33,3 +33,19 @@
 
   min-width: 120px;
 }
+
+.Patients_MotivationImg {
+  width: 40%;
+  align-self: center;
+  margin-right: 10%;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.Patients_MotivationText {
+  width: 50%;
+  align-self: center;
+}
