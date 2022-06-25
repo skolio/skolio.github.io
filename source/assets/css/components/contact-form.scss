@@ -1,21 +1,93 @@
 ---
 ---
+
+@import "colors";
+
 /* Components, contact-form Styling */
 .FormWrapper {
   position: relative;
+  width: 60%;
 
-  p {
-    width: 50%;
+  textarea {
+    width: 100%;
+    min-height: 200px;
+
+    border: 2px solid $skolio-black;
+    border-radius: 16px;
+
+    margin-bottom: 16px;
+    padding: 10px 16px;
   }
 }
-.FormImage {
-  position: absolute;
-  top: -125px;
-  right: 0;
+
+.form_SmallLabel {
+  font-size: 12px;
+  line-height: 16px;
+
+  padding-left: 10px;
+}
+
+.form_TextInput {
+  width: 50%;
+
+  border: 2px solid $skolio-black;
+  border-radius: 16px;
+
+  margin-bottom: 16px;
+  padding: 10px 16px;
+}
+
+.form_CheckboxContainer {
   display: flex;
-  justify-content: center;
+  align-items: baseline;
+}
+
+.form_Checkbox {
+  appearance: none;
+  background-color: $skolio-white;
+  margin: 0;
+
+  width: 24px;
+  height: 24px;
+  border: 2px solid $skolio-black;
+  border-radius: 4px;
+  padding: 10px;
+
+  display: grid;
+  place-content: center;
+}
+
+.form_Checkbox:checked {
+  background-color: $skolio-green-default;
+}
+
+.form_Checkbox::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  transform: scale(0);
+
+  box-shadow: inset 1em 1em $skolio-black;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.form_Checkbox:checked::before {
+  transform: scale(1);
+}
+
+.form_CheckboxLabel {
+  margin-left: 10px;
+}
+
+.form_ContactBtn {
+  margin-top: 16px;
+  margin-right: 20px;
 
   img {
-    width: 50%;
+    margin-right: 10px;
   }
+}
+
+.form_RequiredInfo {
+  font-style: italic;
 }

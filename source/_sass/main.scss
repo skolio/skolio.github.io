@@ -96,6 +96,18 @@ a.red:active {
   color: $skolio-red-pressed;
 }
 
+/* General styling for green links */
+a.green {
+  color: $skolio-green-pressed;
+}
+
+a.green:hover {
+  color: $skolio-green-800;
+}
+a.green:active {
+  color: $skolio-green-900;
+}
+
 /* General styling for buttons */
 button {
   font-family: Mulish-Bold, sans-serif;
