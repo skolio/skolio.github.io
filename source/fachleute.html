@@ -5,15 +5,21 @@ style: subpages/specialists.css
 ---
 <div class="SubpageWrapper">
     <div class="container">
-        <h1 class="SubpageHeading">Für Fachleute</h1>
-        <p class="large Specialists_SubHeading">
-            Die Skolio App für das Training deiner Patient:innen daheim
-        </p>
-        <p class="large">
-            Skolio ist die ideale Ergänzung für die Skoliosetherapie deiner Patient:innen.
-            Während eurer Sitzungen könnt ihr die Übungen einstudieren, und für die Tage bis zum nächsten Termin
-            können deine Patient:innen die Skolio App nutzen.
-        </p>
+        <div class="Specialists_FeatureWrapper">
+            <h1 class="SubpageHeading">Für Fachleute</h1>
+            <p class="large">Die Skolio App für das Training deiner Patient:innen daheim</p>
+            <p class="normal">
+                Skolio ist die ideale Ergänzung für die Skoliosetherapie deiner Patient:innen.
+                Während eurer Sitzungen könnt ihr die Übungen einstudieren, und für die Tage bis zum nächsten Termin
+                können deine Patient:innen die Skolio App nutzen.
+            </p>
+            <p class="normal">
+                Die Skolio App befindet sich in ständiger Weiterentwicklung, mehr dazu unter
+                <a class="green Specialists_Link" href="skolioApp.html"><br>Das Projekt</a>.<br>
+                Wir freuen uns über Feedback und Anregungen, gerne über das
+                <a class="green Specialists_Link" href="#fachleute-kontakt"><br>Kontaktformular</a>!
+            </p>
+        </div>
     </div>
 
     <div class="SectionWrapper">
@@ -23,7 +29,7 @@ style: subpages/specialists.css
         <div class="container">
             <div class="Specialists_FeatureWrapper">
                 <h2>So können deine Patient:innen die Skolio App verwenden</h2>
-                <p class="large">
+                <p class="normal">
                     Mit Skolio könnt ihr gemeinsam in der App individuelle Übungen und einen Trainingsplan erstellen.
                     Bis zum nächsten Termin können die Patient:innen dann selbständig mit ihrer App trainieren.
                 </p>
@@ -66,8 +72,10 @@ style: subpages/specialists.css
         </div>
     </div>
 
-    <div class="container">
-        <h2>Kontaktiere uns!</h2>
-        {% include components/contact-form.html %}
+    <div id="fachleute-kontakt" class="container">
+        <div class="Specialists_FeatureWrapper">
+            <h2>Kontaktiere uns!</h2>
+            {% include components/contact-form.html %}
+        </div>
     </div>
 </div>
