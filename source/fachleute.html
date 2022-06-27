@@ -5,19 +5,21 @@ style: subpages/specialists.css
 ---
 <div class="SubpageWrapper">
     <div class="container">
-        <h1 class="SubpageHeading">Für Fachleute</h1>
-        <p class="large">Die Skolio App für das Training deiner Patient:innen daheim</p>
-        <p class="normal Specialists_FeatureWrapper">
-            Skolio ist die ideale Ergänzung für die Skoliosetherapie deiner Patient:innen.
-            Während eurer Sitzungen könnt ihr die Übungen einstudieren, und für die Tage bis zum nächsten Termin
-            können deine Patient:innen die Skolio App nutzen.
-        </p>
-        <p class="normal">
-            Die Skolio App befindet sich in ständiger Weiterentwicklung, mehr dazu unter
-            <a class="green" href="skolioApp.html">Das Projekt</a>.<br>
-            Wir freuen uns über Feedback und Anregungen, gerne über das
-            <a class="green" href="#fachleute-kontakt">Kontaktformular</a>!
-        </p>
+        <div class="Specialists_FeatureWrapper">
+            <h1 class="SubpageHeading">Für Fachleute</h1>
+            <p class="large">Die Skolio App für das Training deiner Patient:innen daheim</p>
+            <p class="normal">
+                Skolio ist die ideale Ergänzung für die Skoliosetherapie deiner Patient:innen.
+                Während eurer Sitzungen könnt ihr die Übungen einstudieren, und für die Tage bis zum nächsten Termin
+                können deine Patient:innen die Skolio App nutzen.
+            </p>
+            <p class="normal">
+                Die Skolio App befindet sich in ständiger Weiterentwicklung, mehr dazu unter
+                <a class="green Specialists_Link" href="skolioApp.html"><br>Das Projekt</a>.<br>
+                Wir freuen uns über Feedback und Anregungen, gerne über das
+                <a class="green Specialists_Link" href="#fachleute-kontakt"><br>Kontaktformular</a>!
+            </p>
+        </div>
     </div>
 
     <div class="SectionWrapper">
@@ -71,7 +73,9 @@ style: subpages/specialists.css
     </div>
 
     <div id="fachleute-kontakt" class="container">
-        <h2>Kontaktiere uns!</h2>
-        {% include components/contact-form.html %}
+        <div class="Specialists_FeatureWrapper">
+            <h2>Kontaktiere uns!</h2>
+            {% include components/contact-form.html %}
+        </div>
     </div>
 </div>
