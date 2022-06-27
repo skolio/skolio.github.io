@@ -1,21 +1,43 @@
 ---
 ---
+
 @import "colors";
+@import "breakpoints";
 
 /* Patients page Styling */
+.Patients_ContentWrapper {
+  @include media-breakpoint-down(sm) {
+    padding: 0 10px;
+  }
+}
+
 .Patients_IntroWrapper {
   margin-top: 24px;
   margin-bottom: 60px;
   justify-content: space-between;
   align-items: center;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .Patients_IntroText {
   width: 50%;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
 }
 
 .Patients_IntroFacts {
   width: 45%;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    order: -1;
+  }
 }
 
 .Patients_FactContainer {
@@ -34,6 +56,13 @@
   min-width: 120px;
 }
 
+.Patients_MotivationContainer {
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
 .Patients_MotivationImg {
   width: 40%;
   align-self: center;
@@ -43,16 +72,30 @@
     width: 100%;
     object-fit: contain;
   }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    margin-right: unset;
+  }
 }
 
 .Patients_MotivationText {
   width: 50%;
   align-self: center;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
 }
 
 .Patients_MessageText {
   width: 50%;
   align-self: center;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 
 .Patients_MessageImg {
@@ -66,11 +109,38 @@
     width: 100%;
     object-fit: cover;
   }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    position: relative;
+    right: unset;
+    top: unset;
+
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+
+    img {
+      padding: 0 10px;
+    }
+  }
+}
+
+.Patients_WhyContainer {
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 
 .Patients_WhyUpperContainer {
   padding-top: 60px;
   position: relative;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 0;
+  }
 }
 
 .Patients_WhyBackground {
@@ -81,16 +151,40 @@
     object-fit: contain;
     transform: scaleY(-1);
   }
+
+  @include media-breakpoint-down(sm) {
+    position: relative;
+    top: unset;
+    bottom: unset;
+    padding-bottom: 60px;
+  }
 }
 
 .Patients_WhyText {
   width: 50%;
   align-self: start;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      width: 90%;
+      margin-top: 15px;
+    }
+  }
 }
 
 .Patients_WhyLowerContainer {
   padding-top: 60px;
   position: relative;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 0;
+    padding-bottom: 150px;
+  }
 }
 
 .app_FeatureContainer {
@@ -99,16 +193,39 @@
   div:first-child {
     margin-top: 0;
   }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    margin-top: 50px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      width: 90%;
+      align-self: center;
+      margin-top: 15px;
+    }
+  }
 }
 
 .app_FeatureWrapper {
   display: flex;
   margin: 50px 0;
   gap: 25px;
+
+  @include media-breakpoint-down(sm) {
+    margin: 15px 0;
+    gap: 10px;
+  }
 }
 
 .app_FeatureIcon {
   align-self: center;
+
+  @include media-breakpoint-down(sm) {
+    align-self: start;
+  }
 }
 
 .app_FeatureText {
@@ -131,5 +248,10 @@
   img {
     width: 100%;
     object-fit: cover;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+    bottom: -30px;
   }
 }

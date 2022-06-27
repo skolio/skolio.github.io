@@ -1,6 +1,14 @@
 ---
 ---
+
+@import "breakpoints";
+
 /* Imprint page Styling */
+.imprint_ContentWrapper {
+  @include media-breakpoint-down(sm) {
+    padding: 0 10px;
+  }
+}
 .imprint_SectionContainer {
   margin: 20px 0;
 }
