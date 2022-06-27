@@ -1,12 +1,28 @@
 ---
 ---
 @import "colors";
+@import "breakpoints";
 
 /* Skolio App page Styling */
+.App_ContentWrapper {
+  @include media-breakpoint-down(sm) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
 .App_PersonContainer {
   justify-content: space-between;
   padding: 15px 0;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 }
+
 .App_PersonWrapper {
   width: 30%;
   display: flex;
@@ -21,6 +37,10 @@
   p {
     font-weight: bold;
     margin-top: 15px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 60%;
   }
 }
 
@@ -47,6 +67,11 @@
 
 .App_ContentContainer {
   display: flex;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
 
 .App_TextContent {
@@ -54,6 +79,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
 }
 
 .App_ImgContent {
@@ -64,5 +93,13 @@
   img {
     width: 70%;
     object-fit: contain;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
   }
 }
