@@ -3,3 +3,44 @@
 @import "colors";
 
 /* Skolio App page Styling */
+.App_PersonContainer {
+  justify-content: space-between;
+  padding: 15px 0;
+}
+.App_PersonWrapper {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  p {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+}
+
+.footer_Links {
+  display: flex;
+  align-items: center;
+  align-self: center;
+
+  .googlePlay {
+    text-decoration: none;
+
+    img {
+      height: 59px;
+    }
+  }
+
+  .appStore {
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 13px;
+    height: 40px;
+  }
+}
