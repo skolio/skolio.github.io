@@ -1,8 +1,15 @@
 ---
 ---
 @import "colors";
+@import "breakpoints";
 
 /* FAQ page Styling */
+.faq_ContentWrapper {
+  @include media-breakpoint-down(sm) {
+    padding: 0 10px;
+  }
+}
+
 .faq_IntroParagraph {
   margin-bottom: 40px;
 }
