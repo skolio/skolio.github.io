@@ -6,7 +6,7 @@
 
   z-index: 10;
   background-color: $skolio-white;
-}
+
 
 .Header_Background {
   position: absolute;
@@ -26,6 +26,24 @@
   img {
     height: 40px;
   }
+
+  .openNav{
+    display: none;
+    @include media-breakpoint-down(lg) {
+      display: block;
+      position: absolute;
+      top: 1rem;
+      left: 2rem;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
 
 .Header_NavContainer {
@@ -34,27 +52,29 @@
   align-items: center;
   justify-content: right;
 
+
+
   @include media-breakpoint-down(lg) {
-    width: 50%;
+      display: none;
   }
 
   @include media-breakpoint-down(sm) {
     width: 10%;
   }
-}
 
-.navBtn {
-  font-size: 16px;
-  line-height: 24px;
-
-  padding: 25px 20px;
-  color: $skolio-black;
-  text-decoration: none;
-}
-
-.navBtn:hover {
-  font-weight: bold;
-  color: $skolio-red-hovered;
+  .navBtn {
+    font-size: 16px;
+    line-height: 24px;
+  
+    padding: 25px 20px;
+    color: $skolio-black;
+    text-decoration: none;
+  }
+  
+  .navBtn:hover {
+    font-weight: bold;
+    color: $skolio-red-hovered;
+  }
 }
 
 /* Styling for dropdown */
@@ -90,4 +110,56 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+}
+
+.mobileNav {
+  height: 100vh; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Stay on top */
+  top: 0;
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: #ffff;
+  background-image: linear-gradient(rgba(254,212,152,0.6), rgba(254,212,152,0.1));
+  nav{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    .navBtn {
+      font-size: 16px;
+      line-height: 24px;
+      color: $skolio-black;
+      text-decoration: none;
+    }
+    .navBtn:hover {
+      font-weight: bold;
+      color: $skolio-red-hovered;
+    }
+  }
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: $skolio-black;
+    text-decoration: none;
+    &:hover{
+      font-weight: bold;
+      color: $skolio-red-hovered;
+    }
+  }
+}
+
+.mobileWidth{
+  width: 375px;
+  @include media-breakpoint-down(sm) {
+    width: 100vw;
+  }
 }

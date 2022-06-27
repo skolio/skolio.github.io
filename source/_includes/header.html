@@ -2,49 +2,90 @@
     <div class="Header_Background"></div>
     <div class="container FlexDiv">
         <div class="Header_BrandContainer">
+            <span class="openNav" onclick="openNav()">
+                <img src="assets/images/hamburger-menu.svg"></img>
+            </span>
             <a href="/">
                 <img href="/" src="assets/images/skolio-logo.svg" alt="Skolio Icon">
             </a>
         </div>
         <div class="Header_NavContainer">
+           
             <nav>
                 {% for item in site.data.header_navigation %}
-                    {% if item.subitems %}
-                    <div class="dropdown">
+                {% if item.subitems %}
+                <div class="dropdown">
                     {% endif %}
 
                     {% if item.type == "button" %}
-                        <button class="{{ item.color }}">
-                            <a href="{{ item.url }}">
-                                {{ item.title }}
-                            </a>
-                        </button>
-                    {% else %}
-                        <a class="navBtn"
-                            {% if item.url %}
-                            href="{{ item.url }}"
-                            {% endif %}
-                        >
+                    <button class="{{ item.color }}">
+                        <a href="{{ item.url }}">
                             {{ item.title }}
                         </a>
+                    </button>
+                    {% else %}
+                    <a class="navBtn" {% if item.url %} href="{{ item.url }}" {% endif %}>
+                        {{ item.title }}
+                    </a>
                     {% endif %}
 
                     {% if item.subitems %}
-                        <div class="dropdown-content">
+                    <div class="dropdown-content">
                         {% for subitem in item.subitems %}
-                            <a
-                                {% if subitem.url %}
-                                href="{{ subitem.url }}"
-                                {% endif %}
-                            >
-                                {{ subitem.title }}
-                            </a>
+                        <a {% if subitem.url %} href="{{ subitem.url }}" {% endif %}>
+                            {{ subitem.title }}
+                        </a>
                         {% endfor %}
-                        </div>
                     </div>
-                    {% endif %}
+                </div>
+                {% endif %}
                 {% endfor %}
             </nav>
+
         </div>
+
     </div>
 </div>
+
+<div id="mobileNav" class="mobileNav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+    <nav>
+        {% for item in site.data.header_navigation %}
+        {% if item.subitems %}
+        <div class="dropdown">
+            {% endif %}
+
+            {% if item.type == "button" %}
+            <button class="{{ item.color }}">
+                <a href="{{ item.url }}">
+                    {{ item.title }}
+                </a>
+            </button>
+            {% else %}
+            <a class="navBtn" {% if item.url %} href="{{ item.url }}" {% endif %}>
+                {{ item.title }}
+            </a>
+            {% endif %}
+
+            {% if item.subitems %}
+            <div class="dropdown-content">
+                {% for subitem in item.subitems %}
+                <a {% if subitem.url %} href="{{ subitem.url }}" {% endif %}>
+                    {{ subitem.title }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </nav>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mobileNav").classList.add("mobileWidth");
+    }
+    function closeNav() {
+        document.getElementById("mobileNav").classList.remove("mobileWidth");
+    }
+</script>
