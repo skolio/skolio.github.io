@@ -1,6 +1,23 @@
 ---
 ---
+
+@import "breakpoints";
+
 /* Data privacy page Styling */
+.dataPrivacy_Wrapper {
+  br {
+    display: none;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 0 10px;
+
+    br {
+      display: block;
+    }
+  }
+}
+
 .dataPrivacy_SectionContainer {
   margin: 20px 0;
 }
