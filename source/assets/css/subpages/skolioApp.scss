@@ -44,3 +44,25 @@
     height: 40px;
   }
 }
+
+.App_ExercisesContainer {
+  display: flex;
+}
+
+.App_ExercisesContent {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.App_ExercisesImg {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 70%;
+    object-fit: contain;
+  }
+}
