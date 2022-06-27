@@ -96,7 +96,6 @@
 .dropdown-content a {
   font-size: 16px;
   line-height: 24px;
-
   padding: 25px 20px;
   color: $skolio-black;
   text-decoration: none;
@@ -114,16 +113,17 @@
 
 }
 
+/* Styling for mobile navigation */
 .mobileNav {
-  height: 100vh; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 20; /* Stay on top */
+  height: 100vh; 
+  width: 0; 
+  position: fixed;
+  z-index: 20; 
   top: 0;
   left: 0;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s;
   background-color: #ffff;
   background-image: linear-gradient(rgba(254,212,152,0.6), rgba(254,212,152,0.1));
   nav{
