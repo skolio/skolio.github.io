@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Skolio App</title>
+        <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+        <!--
+        The file /assets/css/default.scss will be compiled to css at the same path.
+        The "File not found" warning is in error.
+        -->
+        <link rel="stylesheet" href="/assets/css/default.css">
+        <link rel="stylesheet" href="/assets/css/subpages/skolioApp.css"></head>
+    <body><div class="Header_Container">
+    <div class="Header_Background"></div>
+    <div class="container FlexDiv">
+        <div class="Header_BrandContainer">
+            <span class="openNav" onclick="openNav()">
+                <img src="assets/images/hamburger-menu.svg"></img>
+            </span>
+            <a href="/">
+                <img href="/" src="assets/images/skolio-logo.svg" alt="Skolio Icon">
+            </a>
+        </div>
+        <div class="Header_NavContainer">
+           
+            <nav>
+                
+                
+
+                    
+                    <a class="navBtn"  href="/" >
+                        Home
+                    </a>
+                    
+
+                    
+                
+                
+
+                    
+                    <a class="navBtn"  href="skolioApp.html" >
+                        Das Projekt
+                    </a>
+                    
+
+                    
+                
+                
+
+                    
+                    <a class="navBtn"  href="betroffene.html" >
+                        Für Betroffene
+                    </a>
+                    
+
+                    
+                
+                
+
+                    
+                    <a class="navBtn"  href="fachleute.html" >
+                        Für Fachleute
+                    </a>
+                    
+
+                    
+                
+                
+
+                    
+                    <a class="navBtn"  href="faq.html" >
+                        FAQ
+                    </a>
+                    
+
+                    
+                
+                
+
+                    
+                    <button class="green">
+                        <a href="/#index-kontakt">
+                            Kontakt
+                        </a>
+                    </button>
+                    
+
+                    
+                
+            </nav>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="mobileNav" class="mobileNav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+    <nav>
+        
+        
+
+            
+            <a class="navBtn"  href="/" >
+                Home
+            </a>
+            
+
+            
+        
+        
+
+            
+            <a class="navBtn"  href="skolioApp.html" >
+                Das Projekt
+            </a>
+            
+
+            
+        
+        
+
+            
+            <a class="navBtn"  href="betroffene.html" >
+                Für Betroffene
+            </a>
+            
+
+            
+        
+        
+
+            
+            <a class="navBtn"  href="fachleute.html" >
+                Für Fachleute
+            </a>
+            
+
+            
+        
+        
+
+            
+            <a class="navBtn"  href="faq.html" >
+                FAQ
+            </a>
+            
+
+            
+        
+        
+
+            
+            <button class="green">
+                <a href="/#index-kontakt">
+                    Kontakt
+                </a>
+            </button>
+            
+
+            
+        
+    </nav>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mobileNav").classList.add("mobileWidth");
+    }
+    function closeNav() {
+        document.getElementById("mobileNav").classList.remove("mobileWidth");
+    }
+</script>
+        <div class="SubpageWrapper">
+  <div class="container">
+    <div class="App_ContentWrapper">
+      <h1 class="SubpageHeading">Über das Projekt</h1>
+      <p class="normal">
+        Skolio wurde als ehrenamtliches Projekt ins Leben gerufen, um jungen Patientinnen und Patienten nach ihrer
+        Diagnose mit Skoliose zu unterstützen. In unserem Team vereint sich digitale Expertise, die eigene Erfahrung
+        einer Skoliose Patientin, sowie 20 Jahre physiotherapeutische Erfahrung.
+      </p>
+      <div class="App_PersonContainer FlexDiv">
+        <div class="App_PersonWrapper">
+          <img src="assets/images/person-zenk.svg" alt="Bild Florian Zenk">
+          <p class="normal">Florian Zenk</p>
+        </div>
+        <div class="App_PersonWrapper">
+          <img src="assets/images/person-ascherl.svg" alt="Bild Elisa Ascherl">
+          <p class="normal">Elisa Ascherl</p>
+        </div>
+        <div class="App_PersonWrapper">
+          <img src="assets/images/person-pielmeier.svg" alt="Bild Thomas Pielmeier">
+          <p class="normal">Thomas Pielmeier</p>
+        </div>
+      </div>
+      <p class="normal">
+        Skolio soll ein Angebot für von Skoliose betroffene Patientinnen und Patienten sein, um das Leben ein bisschen
+        einfacher zu machen und mehr Spaß an den täglich notwendigen Übungen zu vermitteln. Dafür wurde Skolio gemeinsam
+        mit erfahrenen Physiotherapeuten und Patienten entwickelt um die speziellen Anforderungen in der Skoliosetherapie
+        zu erfüllen und sie so sinnvoll zu unterstützen. Dabei kann die App aber nicht den Besuch beim qualifizierten
+        Physiotherapeuten ersetzen, sondern nur ergänzen!
+      </p>
+    </div>
+
+    <div class="SectionWrapper App_ContentWrapper">
+      <h2>Weiterentwicklung von Skolio</h2>
+      <p class="normal">
+        Aktuell befindet sich die Skolio-App noch in der Entwicklungsphase. Zur Zeit arbeiten wir an der Weiterentwicklung
+        und der Optimierung der Skolio App. Die Implementierung eines neuen Designs und neuer Features stehen dabei im
+        Vordergrund. Hierbei werden wir von einem Team aus Studierenden der Hochschule der Medien unterstützt, welche
+        nicht nur bei der Erstellung der Webseite, sondern auch bei dem Redesign und der Weiterentwicklung der Skolio
+        App mitwirken. Skolio steht als App für Android und iOS zur Verfügung. Die hier dargestellte Weiterenwicklung
+        wird es bald als Update geben.
+      </p>
+      <div class="footer_Links">
+        <a class="googlePlay" href='https://play.google.com/store/apps/details?id=com.eryushion.skolio&hl=de&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+          <img alt='Jetzt bei Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png'/>
+        </a>
+        <a class="appStore" href="https://apps.apple.com/us/app/skolio/id1574215463?itsct=apps_box_badge&amp;itscg=30200">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?&amp;releaseDate=1630713600&h=42726142a38a4714dd146f54fd1a3888" alt="Download on the App Store">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="SectionWrapper">
+    <div class="ImageWrapper">
+      <img src="assets/images/patients-background.svg" alt="Hintergrundbild">
+    </div>
+    <div class="container App_ContentContainer">
+      <div class="App_TextContent App_ContentWrapper">
+        <h2>Professionell erstellte Übungen</h2>
+        <p class="large">Trainingsbibliothek und eigene Übungen</p>
+        <p class="normal">
+          Skolio bietet voreingestellte und von einem Physiotherapeuten erarbeitete Standardübungen. Im nächsten Update
+          werden diese Übungen jeweils durch Tonspuren erweitert, die ein Physiotherapeut entwickelt und eingesprochen hat.
+          So können Patient:innen, wie bei den Terminen in der Praxis, durch die sprachliche Anweisung eines Therapeuten
+          ihre Übungen absolvieren. Außerdem besteht die Möglichkeit, individuelle Übungen zu erstellen. In einem
+          zukünftigen Update soll es hier ebenfalls die Möglichkeit geben, die individuelle Übung durch eine Audioaufnahme
+          zu erweitern, welche sogar direkt in der Praxis mit dem Handy aufgenommen werden kann.
+        </p>
+      </div>
+      <div class="App_ImgContent App_ContentWrapper">
+        <img src="assets/images/app-exercises-screenshots.svg" alt="Screenshots der App">
+      </div>
+    </div>
+  </div>
+
+  <div class="SectionWrapper">
+    <div class="container App_ContentContainer">
+      <div class="App_ImgContent App_ContentWrapper">
+        <img src="assets/images/app-training-screenshot.svg" alt="Screenshots der App">
+      </div>
+      <div class="App_TextContent App_ContentWrapper">
+        <h2>Unterstützung der Therapie für Zuhause</h2>
+        <p class="large">Individueller Trainingsplan</p>
+        <p class="normal">
+          Für den Trainingsplan können voreingestellte Standardübungen genutzt werden, die meist aus der Physiotherapie
+          bekannt sind. Zusätzlich mit den eigenen erstellten Übungen kann so der Trainingsplan individuell an die
+          jeweiligen Anforderungen und Bedürfnisse angepasst werden. Im persönlichen Trainingsplan kann die Reihenfolge
+          der Übungen jederzeit angepasst werden, sowie die Übungen selbst erweitert oder ausgetauscht werden.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="SectionWrapper">
+    <div class="ImageWrapper">
+      <img src="assets/images/patients-background.svg" alt="Hintergrundbild">
+    </div>
+    <div class="container App_ContentContainer">
+      <div class="App_TextContent App_ContentWrapper">
+        <h2>Erfolge im Blick behalten</h2>
+        <p class="large">Trainingsorganisation</p>
+        <p class="normal">
+          Gleich beim Öffnen der App soll in Zukunft in der Übersicht für heute sichtbar sein, was bereits erledigt ist
+          und was noch zu tun ist. Die Wochenübersicht sowie das Tagebuch ermöglichen die Wahrnehmung des Fortschritts
+          und die Nachvollziehbarkeit des Trainings. So hat man immer den Überblick darüber, wie viel man wirklich
+          trainiert hat. Durch Benachrichtigungen sollen zukünftig auch noch Erinnerungen an das heutige Training
+          gegeben werden, sodass man sich um nichts mehr kümmern muss, außer dem Training selbst!
+        </p>
+      </div>
+      <div class="App_ImgContent App_ContentWrapper">
+        <img src="assets/images/app-orga-screenshots.svg" alt="Screenshots der App">
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="FooterWrapper">
+    <div class="ImageWrapper">
+        <img src="assets/images/footer-background.svg" alt="Hintergrundbild für den Footer">
+    </div>
+    <div class="FlexDiv container footer_ContentWrapper">
+        <div class="footer_Brand">
+            <img src="assets/images/skolio-slogan.svg">
+        </div>
+        <div class="footer_Pages">
+            
+            <a href="impressum.html">Impressum</a>
+            
+            <a href="datenschutz.html">Datenschutz</a>
+            
+        </div>
+        <div class="footer_Links">
+            <a class="instagram" href="https://www.instagram.com/skolio.app/">
+                <img src="assets/images/instagram-icon.svg" alt="Skolio auf Instagram">
+            </a>
+            <a class="googlePlay" href='https://play.google.com/store/apps/details?id=com.eryushion.skolio&hl=de&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                <img alt='Jetzt bei Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png'/>
+            </a>
+            <a class="appStore" href="https://apps.apple.com/us/app/skolio/id1574215463?itsct=apps_box_badge&amp;itscg=30200">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?&amp;releaseDate=1630713600&h=42726142a38a4714dd146f54fd1a3888" alt="Download on the App Store">
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>

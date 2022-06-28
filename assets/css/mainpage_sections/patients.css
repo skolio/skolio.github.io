@@ -1,0 +1,10 @@
+/* Main page, section patients Styling */
+@media (max-width: 575.98px) { .patients_ContentWrapper { flex-direction: column; padding: 0 10px; } }
+
+.patients_TextContainer { width: 50%; }
+@media (max-width: 575.98px) { .patients_TextContainer { width: 100%; display: flex; flex-direction: column; }
+  .patients_TextContainer button { width: 90%; align-self: center; margin-top: 15px; } }
+
+.patients_ImgContainer { width: 50%; display: flex; justify-content: center; }
+.patients_ImgContainer img { width: inherit; }
+@media (max-width: 575.98px) { .patients_ImgContainer { width: 100%; margin-top: 30px; } }
