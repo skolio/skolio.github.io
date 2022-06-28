@@ -14,7 +14,7 @@ on:
 jobs:
   test:
     name: Integration Tests
-    if: ${{ !github.event.inputs.skip-tests }}
+    if: ${{ github.event.inputs.skip-tests == 'false' }}
     strategy:
       fail-fast: true
       matrix:
