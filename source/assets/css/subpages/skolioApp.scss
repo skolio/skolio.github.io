@@ -14,26 +14,23 @@
 .App_PersonContainer {
   padding: 15px 0;
   gap: 20px;
-
-  @include media-breakpoint-down(sm) {
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
 }
 
 .App_PersonWrapper {
   display: flex;
   align-items: center;
-  gap: 40px;
 
   @include media-breakpoint-down(sm) {
-    width: 60%;
+    flex-direction: column;
   }
 }
 
 .App_PersonText {
   width: 75%;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
 }
 
 .App_PersonImage {
@@ -50,6 +47,10 @@
   p {
     font-weight: bold;
     margin-top: 15px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
   }
 }
 
@@ -89,5 +90,11 @@
     img {
       width: 100%;
     }
+  }
+}
+
+.App_SwitchOrder {
+  @include media-breakpoint-down(sm) {
+    order: -1;
   }
 }
