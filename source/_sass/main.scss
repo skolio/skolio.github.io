@@ -153,11 +153,12 @@ p.small {
 /* General styling for links */
 a {
   color: $skolio-black;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
   color: $skolio-black;
+  text-decoration: underline;
 }
 
 /* General styling for red links */
@@ -194,7 +195,9 @@ button {
 
   border-style: none;
   border-radius: 20px;
+}
 
+button:hover{
   a {
     text-decoration: none;
   }
