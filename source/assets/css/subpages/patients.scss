@@ -36,7 +36,6 @@
 
   @include media-breakpoint-down(sm) {
     width: 100%;
-    order: -1;
   }
 }
 
@@ -85,6 +84,7 @@
 
   @include media-breakpoint-down(sm) {
     width: 100%;
+    order: -1;
   }
 }
 
@@ -115,15 +115,6 @@
     position: relative;
     right: unset;
     top: unset;
-
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    padding-left: calc(var(--bs-gutter-x) * .5);
-
-    img {
-      padding: 0 10px;
-    }
   }
 }
 
@@ -153,10 +144,7 @@
   }
 
   @include media-breakpoint-down(sm) {
-    position: relative;
-    top: unset;
-    bottom: unset;
-    padding-bottom: 60px;
+    display: none;
   }
 }
 
@@ -169,9 +157,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    order: -1;
 
     button {
-      width: 90%;
+      align-self: start;
       margin-top: 15px;
     }
   }
