@@ -7,6 +7,10 @@
 .Specialists_FeatureWrapper {
   width: 75%;
 
+  .FeatureContainer {
+    width: 75%;
+  }
+
   @include media-breakpoint-down(sm) {
     width: 100%;
     padding: 0 10px;
@@ -45,48 +49,4 @@
     bottom: unset;
     top: -110px;
   }
-}
-
-.app_FeatureContainer {
-  width: 75%;
-  margin-top: 60px;
-
-  div:first-child {
-    margin-top: 0;
-  }
-
-  @include media-breakpoint-down(sm) {
-    width: 100%;
-    margin-top: 50px;
-  }
-}
-
-.app_FeatureWrapper {
-  display: flex;
-  margin: 50px 0;
-  gap: 25px;
-
-  @include media-breakpoint-down(sm) {
-    margin: 15px 0;
-    gap: 10px;
-  }
-}
-
-.app_FeatureIcon {
-  align-self: center;
-
-  @include media-breakpoint-down(sm) {
-    align-self: start;
-  }
-}
-
-.app_FeatureText {
-  p:nth-child(2) {
-    margin-bottom: 0;
-  }
-}
-
-.app_FeatureHeading {
-  font-family: "Mulish-Bold", sans-serif;
-  margin-bottom: 8px;
 }
