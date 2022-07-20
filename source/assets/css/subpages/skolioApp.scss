@@ -12,19 +12,29 @@
 }
 
 .App_PersonContainer {
-  justify-content: space-between;
   padding: 15px 0;
-
-  @include media-breakpoint-down(sm) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
+  gap: 20px;
 }
 
 .App_PersonWrapper {
-  width: 30%;
+  display: flex;
+  align-items: center;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+}
+
+.App_PersonText {
+  width: 75%;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+}
+
+.App_PersonImage {
+  width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +50,7 @@
   }
 
   @include media-breakpoint-down(sm) {
-    width: 60%;
+    width: 100%;
   }
 }
 
@@ -80,5 +90,11 @@
     img {
       width: 100%;
     }
+  }
+}
+
+.App_SwitchOrder {
+  @include media-breakpoint-down(sm) {
+    order: -1;
   }
 }
