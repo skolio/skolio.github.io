@@ -56,15 +56,6 @@
   box-shadow: none;
 }
 
-.accordion-button::after {
-  background-image: url('../../images/accordion-button.svg');
-}
-
-.accordion-button:not(.collapsed)::after {
-  background-image: url('../../images/accordion-button.svg');
-  transform: rotate(180deg);
-}
-
 .accordion-body {
   font-size: 16px;
   line-height: 24px;
