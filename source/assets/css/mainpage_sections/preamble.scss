@@ -37,7 +37,7 @@
     width: 25%;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     padding: 10px 0;
 
     img {
@@ -60,6 +60,12 @@
   padding-left: 10%;
   justify-content: center;
   align-items: start;
+
+  @include media-breakpoint-down(lg) {
+    padding-left: 10px;
+    padding-top: 60px;
+    justify-content: start;
+  }
 
   @include media-breakpoint-down(sm) {
     width: 100%;
@@ -93,9 +99,24 @@
   display: flex;
   justify-content: center;
 
+  @include media-breakpoint-down(lg) {
+    position: absolute;
+    right: 0;
+    bottom: 90px;
+    justify-content: start;
+
+    width: 55%;
+    overflow: hidden;
+  }
+
   @include media-breakpoint-down(sm) {
     width: 100%;
     margin-bottom: 20px;
+
+    position: relative;
+    right: unset;
+    bottom: unset;
+    justify-content: center;
 
     img {
       width: 100%;
