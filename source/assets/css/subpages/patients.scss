@@ -6,7 +6,7 @@
 
 /* Patients page Styling */
 .Patients_ContentWrapper {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     padding: 0 10px;
   }
 }
@@ -17,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     flex-direction: column;
     justify-content: center;
   }
@@ -26,13 +26,17 @@
 .Patients_IntroText {
   width: 50%;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
   }
 }
 
 .Patients_IntroFacts {
   width: 45%;
+
+  @include media-breakpoint-down(lg) {
+    width: 60%;
+  }
 
   @include media-breakpoint-down(sm) {
     width: 100%;
@@ -56,7 +60,7 @@
 }
 
 .Patients_MotivationContainer {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     flex-direction: column;
     gap: 30px;
   }
@@ -72,9 +76,13 @@
     object-fit: contain;
   }
 
+  @include media-breakpoint-down(lg) {
+    width: 80%;
+    margin-right: unset;
+  }
+
   @include media-breakpoint-down(sm) {
     width: 100%;
-    margin-right: unset;
   }
 }
 
@@ -82,7 +90,7 @@
   width: 50%;
   align-self: center;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     order: -1;
   }
@@ -92,7 +100,7 @@
   width: 50%;
   align-self: center;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     margin-bottom: 15px;
   }
@@ -110,7 +118,7 @@
     object-fit: cover;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     position: relative;
     right: unset;
@@ -119,7 +127,7 @@
 }
 
 .Patients_WhyContainer {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     flex-direction: column;
     gap: 30px;
   }
@@ -129,7 +137,7 @@
   padding-top: 60px;
   position: relative;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     padding-top: 0;
   }
 }
@@ -143,7 +151,7 @@
     transform: scaleY(-1);
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     display: none;
   }
 }
@@ -152,11 +160,11 @@
   width: 50%;
   align-self: start;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     order: -1;
 
     button {
@@ -170,7 +178,7 @@
   padding-top: 60px;
   position: relative;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     padding-top: 0;
     padding-bottom: 150px;
   }
@@ -187,8 +195,12 @@
     object-fit: cover;
   }
 
+  @include media-breakpoint-down(lg) {
+    width: 55%;
+    bottom: -30px;
+  }
+
   @include media-breakpoint-down(sm) {
     width: 100%;
-    bottom: -30px;
   }
 }
