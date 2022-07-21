@@ -11,7 +11,7 @@
     width: 75%;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     padding: 0 10px;
 
@@ -26,7 +26,7 @@
     display: none;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     margin-bottom: 10px;
 
     br {
@@ -49,8 +49,20 @@
     object-fit: cover;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     bottom: unset;
+    top: -150px;
+
+    img {
+      width: 45%;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
     top: -110px;
+
+    img {
+      width: 80%;
+    }
   }
 }
