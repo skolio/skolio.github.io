@@ -7,7 +7,7 @@
 .contact_ImgWrapper {
   display: none;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     display: block;
     position: absolute;
     top: 0;
@@ -26,7 +26,12 @@
 .contact_ContentContainer {
   margin-top: 10px;
 
+  @include media-breakpoint-down(lg) {
+    margin-top: 50px;
+  }
+
   @include media-breakpoint-down(sm) {
+    margin-top: 10px;
     padding: 0 10px;
   }
 }
