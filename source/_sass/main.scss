@@ -81,7 +81,7 @@ p.small {
     margin-top: 0;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     margin-top: 50px;
     padding: 0 10px;
@@ -100,7 +100,7 @@ p.small {
   margin: 50px 0;
   gap: 25px;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     margin: 15px 0;
     gap: 10px;
   }
@@ -109,7 +109,7 @@ p.small {
 .FeatureIcon {
   align-self: center;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     align-self: start;
   }
 }

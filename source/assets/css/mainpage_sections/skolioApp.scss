@@ -14,7 +14,7 @@
   display: flex;
   margin-top: 50px;
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     flex-direction: column;
   }
 }
@@ -28,7 +28,7 @@
     object-fit: contain;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     display: flex;
     justify-content: center;
