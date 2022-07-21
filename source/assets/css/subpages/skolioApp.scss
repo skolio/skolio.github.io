@@ -19,9 +19,9 @@
 .App_PersonWrapper {
   display: flex;
   align-items: center;
+  gap: 40px;
 
   @include media-breakpoint-down(lg) {
-    gap: 40px;
     align-items: start;
   }
 
