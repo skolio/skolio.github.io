@@ -5,7 +5,7 @@
 
 /* Main page, section physio Styling */
 .physio_ContentWrapper {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     flex-direction: column;
   }
 }
@@ -18,18 +18,22 @@
     width: 50%;
   }
 
-  @include media-breakpoint-down(sm) {
-    margin-top: 55%;
+  @include media-breakpoint-down(lg) {
+    margin-top: 65%;
     padding: 0 10px;
 
     div {
       width: 100%;
     }
   }
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 55%;
+  }
 }
 
 .physio_TextWrapper {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     display: flex;
     flex-direction: column;
 
@@ -53,7 +57,7 @@
     object-fit: cover;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     width: 100%;
     height: unset;
     top: 0;
