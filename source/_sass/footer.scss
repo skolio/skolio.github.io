@@ -39,12 +39,18 @@
     padding: 0 10px;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     flex-direction: column;
-    align-self: start;
+    align-items: center;
+    align-self: center;
 
     a {
       padding: 10px 0;
     }
+  }
+
+  @include media-breakpoint-down(sm) {
+    align-items: start;
+    align-self: start;
   }
 }

@@ -130,8 +130,26 @@ p.small {
   align-items: center;
   align-self: center;
 
+  @include media-breakpoint-down(lg) {
+    align-items: baseline;
+  }
+
   .instagram {
     padding-right: 20px;
+  }
+
+  .AppLinkWrapper {
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: row;
+      align-items: baseline;
+    }
   }
 
   .googlePlay {
@@ -139,6 +157,12 @@ p.small {
 
     img {
       height: 59px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      img {
+        height: 53px;
+      }
     }
   }
 
