@@ -1,7 +1,7 @@
 ---
-author: Elisa
+author: Tom
 excerpt_separator: <!--more-->
-unpublished: true
+unpublished: false
 ---
 
 # This is our first blog post!

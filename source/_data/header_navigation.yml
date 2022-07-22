@@ -8,6 +8,8 @@
   url: fachleute.html
 - title: FAQ
   url: faq.html
+- title: Blog
+  url: blog.html
 - title: Kontakt
   url: /#index-kontakt
   type: button

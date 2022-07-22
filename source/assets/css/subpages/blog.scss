@@ -1,0 +1,56 @@
+---
+---
+@import "colors";
+@import "breakpoints";
+
+/* Blog page Styling */
+.Blog_ContentWrapper {
+  @include media-breakpoint-down(sm) {
+    padding: 0 10px;
+  }
+}
+
+.Blog_PersonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @include media-breakpoint-down(lg) {
+    align-items: start;
+  }
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    gap: unset;
+    align-items: center;
+  }
+}
+
+.Blog_PostContent {
+  width: 75%;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+}
+
+.App_PersonImage {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  p {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 90%;
+  }
+}
