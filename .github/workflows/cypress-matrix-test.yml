@@ -2,6 +2,8 @@
 name: Cypress Matrix Test
 
 on:
+  push:
+    branches: [ publish ]
   workflow_dispatch:
 
 jobs:
