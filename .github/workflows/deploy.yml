@@ -27,7 +27,7 @@ jobs:
 
       # Log Input
       - name: Log Input
-        run: echo Build Only: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.build-only == 'true' }}
+        run: "echo Build Only: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.build-only == 'true' }}"
 
       # Checkout git branch
       - name: Checkout
