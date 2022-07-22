@@ -16,6 +16,8 @@ on:
         required: true
         default: true
         type: boolean
+  
+  workflow_call:
 
 jobs:
   github-pages:
@@ -30,6 +32,8 @@ jobs:
       # Checkout git branch
       - name: Checkout
         uses: actions/checkout@v3.0.2
+        with:
+          ref: publish
 
       # Cache gems
       - name: Cache Gems
