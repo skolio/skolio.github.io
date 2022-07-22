@@ -32,6 +32,8 @@ github_username:  lenkva
 repository: skolio/skolio.github.io
 
 source: source
+sass:
+  sass_dir: _sass
 
 # Exclude from processing.
 # The following items will not be processed, by default.
