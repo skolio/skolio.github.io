@@ -23,6 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      # Log Input
+      - name: Log Input
+        run: echo Build Only: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.build-only == 'true' }}
+
       # Checkout git branch
       - name: Checkout
         uses: actions/checkout@v3.0.2
@@ -40,18 +44,10 @@ jobs:
         run: git config --global --add safe.directory /github/workspace
 
       # Build the site and push new state to branch gh-pages
-      - name: Build and deploy site
-        if: github.event_name == 'push' || github.event.inputs.build-only == 'false'
+      - name: Run Jekyll
         uses: helaili/jekyll-action@2.3.1    # Choose any one of the Jekyll Actions
         with:                                # Some relative inputs of your action
           keep_history: true
           token: ${{ secrets.GITHUB_TOKEN }}
           jekyll_source: source
-
-      - name: Build Site
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.build-only == 'true'
-        uses: helaili/jekyll-action@2.3.1    
-        with:                                
-          token: ${{ secrets.GITHUB_TOKEN }}
-          keep_history: true
-          build_only: true
+          build_only: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.build-only == 'true' }}
