@@ -46,7 +46,7 @@ jobs:
           config: viewportHeight=${{ matrix.viewport_height }},viewportWidth=${{ matrix.viewport_width }}
 
   verify:
-    name: All tests successful
+    name: Integration Tests Completed
     if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: test
