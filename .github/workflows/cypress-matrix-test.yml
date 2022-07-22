@@ -3,7 +3,7 @@ name: Cypress Matrix Test
 
 on:
   push:
-    branches: [ publish ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
