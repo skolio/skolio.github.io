@@ -9,7 +9,6 @@ on:
 jobs:
   test:
     name: Run Test Configuration
-    if: github.event_name == 'workflow_dispatch' || (github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'publish')
     strategy:
       fail-fast: true
       matrix:
