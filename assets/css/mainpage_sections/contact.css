@@ -1,7 +1,1 @@
-/* Main page, section contact Styling */
-.contact_ImgWrapper { display: none; }
-@media (max-width: 575.98px) { .contact_ImgWrapper { display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-  .contact_ImgWrapper img { width: 100%; object-fit: cover; } }
-
-.contact_ContentContainer { margin-top: 10px; }
-@media (max-width: 575.98px) { .contact_ContentContainer { padding: 0 10px; } }
+.contact_ImgWrapper{display:none}@media (max-width: 991.98px){.contact_ImgWrapper{display:block;position:absolute;top:0;left:0;width:100%;height:100%}.contact_ImgWrapper img{width:100%;object-fit:cover}}.contact_ContentContainer{margin-top:10px}@media (max-width: 991.98px){.contact_ContentContainer{margin-top:50px}}@media (max-width: 575.98px){.contact_ContentContainer{margin-top:10px;padding:0 10px}}

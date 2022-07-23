@@ -1,14 +1,1 @@
-/* Main page, section physio Styling */
-@media (max-width: 575.98px) { .physio_ContentWrapper { flex-direction: column; } }
-
-.physio_TextContainer { display: flex; justify-content: right; }
-.physio_TextContainer div { width: 50%; }
-@media (max-width: 575.98px) { .physio_TextContainer { margin-top: 55%; padding: 0 10px; }
-  .physio_TextContainer div { width: 100%; } }
-
-@media (max-width: 575.98px) { .physio_TextWrapper { display: flex; flex-direction: column; }
-  .physio_TextWrapper button { width: 90%; align-self: center; margin-top: 15px; } }
-
-.physio_ImgContainer { width: 45%; height: 90%; position: absolute; left: 0; top: 40px; }
-.physio_ImgContainer img { height: 100%; width: 100%; object-fit: cover; }
-@media (max-width: 575.98px) { .physio_ImgContainer { width: 100%; height: unset; top: 0; } }
+@media (max-width: 991.98px){.physio_ContentWrapper{flex-direction:column}}.physio_TextContainer{display:flex;justify-content:right}.physio_TextContainer div{width:50%}@media (max-width: 991.98px){.physio_TextContainer{margin-top:65%;padding:0 10px}.physio_TextContainer div{width:100%}}@media (max-width: 575.98px){.physio_TextContainer{margin-top:55%}}@media (max-width: 991.98px){.physio_TextWrapper{display:flex;flex-direction:column}.physio_TextWrapper button{align-self:start;margin-top:15px}}.physio_ImgContainer{width:45%;height:90%;position:absolute;left:0;top:40px}.physio_ImgContainer img{height:100%;width:100%;object-fit:cover}@media (max-width: 991.98px){.physio_ImgContainer{width:100%;height:unset;top:0}}

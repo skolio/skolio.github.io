@@ -1,10 +1,1 @@
-/* Data privacy page Styling */
-.dataPrivacy_Wrapper br { display: none; }
-@media (max-width: 575.98px) { .dataPrivacy_Wrapper { padding: 0 10px; }
-  .dataPrivacy_Wrapper br { display: block; } }
-
-.dataPrivacy_SectionContainer { margin: 20px 0; }
-
-.dataPrivacy_HeadParagraph { font-family: "Mulish-Bold", sans-serif; margin-bottom: 0; }
-
-.dataPrivacy_SectionHeading { margin-top: 50px; }
+.dataPrivacy_Wrapper br{display:none}@media (max-width: 575.98px){.dataPrivacy_Wrapper{padding:0 10px}.dataPrivacy_Wrapper br{display:block}}.dataPrivacy_SectionContainer{margin:20px 0}.dataPrivacy_HeadParagraph{font-family:"Mulish-Bold", sans-serif;margin-bottom:0}.dataPrivacy_SectionHeading{margin-top:50px}

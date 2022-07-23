@@ -1,6 +1,1 @@
-/* Imprint page Styling */
-@media (max-width: 575.98px) { .imprint_ContentWrapper { padding: 0 10px; } }
-
-.imprint_SectionContainer { margin: 20px 0; }
-
-.imprint_HeadParagraph { font-family: "Mulish-Bold", sans-serif; margin-bottom: 0; }
+@media (max-width: 575.98px){.imprint_ContentWrapper{padding:0 10px}}.imprint_SectionContainer{margin:20px 0}.imprint_HeadParagraph{font-family:"Mulish-Bold", sans-serif;margin-bottom:0}
