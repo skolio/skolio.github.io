@@ -13,6 +13,12 @@
 
   @include media-breakpoint-down(sm) {
     padding: 0 10px;
+
+    div:nth-child(odd) {
+      .Blog_PostContent {
+        order: 0;
+      }
+    }
   }
 }
 
@@ -21,10 +27,6 @@
   align-items: start;
   gap: 40px;
   margin-bottom: 40px;
-
-  @include media-breakpoint-down(lg) {
-    align-items: start;
-  }
 
   @include media-breakpoint-down(sm) {
     flex-direction: column;
