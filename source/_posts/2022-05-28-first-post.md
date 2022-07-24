@@ -2,6 +2,7 @@
 author: Elisa
 title: Erster Blog Post
 published: true
+layout: post
 excerpt_separator: <!--more-->
 ---
 
@@ -16,7 +17,6 @@ ipsum dolor sit amet.
 
 <!--more-->
 
-# Erster Blog Post
 ## Post Template
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod

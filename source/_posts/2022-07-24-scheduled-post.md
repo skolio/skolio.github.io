@@ -2,6 +2,7 @@
 author: Test
 title: Scheduled Blog Post
 published: true
+layout: post
 excerpt_separator: <!--more-->
 ---
 
@@ -9,7 +10,7 @@ It should not appear in the build output before 2022-07-24
 
 <!--more-->
 
-# Scheduled Blog Post
+## Scheduled Blog Post
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.

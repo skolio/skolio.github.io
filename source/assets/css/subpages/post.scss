@@ -1,0 +1,41 @@
+---
+---
+@import "breakpoints";
+
+/* Post page Styling */
+.Post_ContentWrapper {
+  @include media-breakpoint-down(sm) {
+    padding: 0 10px;
+  }
+}
+
+.Post_HeaderContainer {
+  margin-bottom: 20px;
+}
+
+.Post_HeaderContent {
+  width: 50%;
+  align-items: center;
+  gap: 20px;
+
+  p {
+    margin: 0;
+  }
+
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+  }
+}
+
+.Post_HeaderImage {
+  width: 10%;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 15%;
+  }
+}

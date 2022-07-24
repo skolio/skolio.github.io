@@ -18,6 +18,7 @@ style: subpages/blog.css
                 <div class="Blog_PostContent">
                     <h2>{{ post.title }}</h2>
                     {{ post.excerpt }}
+                    <a href="{{ post.url }}" class="green">Mehr ...</a>
                 </div>
             </div>
         {% endfor %}

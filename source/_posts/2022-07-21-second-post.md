@@ -2,6 +2,7 @@
 author: Tom
 title: Zweiter Blog Post
 published: true
+layout: post
 excerpt_separator: <!--more-->
 ---
 
@@ -16,7 +17,6 @@ ipsum dolor sit amet.
 
 <!--more-->
 
-# Zweiter Blog Post
 ## Post Template
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
