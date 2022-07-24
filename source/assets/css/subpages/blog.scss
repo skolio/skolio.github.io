@@ -5,6 +5,12 @@
 
 /* Blog page Styling */
 .Blog_ContentWrapper {
+  div:nth-child(odd) {
+    .Blog_PostContent {
+      order: -1;
+    }
+  }
+
   @include media-breakpoint-down(sm) {
     padding: 0 10px;
   }
@@ -12,8 +18,9 @@
 
 .Blog_PersonWrapper {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 40px;
+  margin-bottom: 40px;
 
   @include media-breakpoint-down(lg) {
     align-items: start;
@@ -26,15 +33,7 @@
   }
 }
 
-.Blog_PostContent {
-  width: 75%;
-
-  @include media-breakpoint-down(sm) {
-    width: 100%;
-  }
-}
-
-.App_PersonImage {
+.Blog_PersonImage {
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -52,5 +51,13 @@
 
   @include media-breakpoint-down(sm) {
     width: 90%;
+  }
+}
+
+.Blog_PostContent {
+  width: 75%;
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
   }
 }
