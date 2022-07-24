@@ -1,0 +1,10 @@
+name: Scheduled publication of new blog posts
+
+on: 
+  schedule:
+    - cron: '30 2 * * *'
+
+jobs:
+  run-deploy:
+    name: Run Deployment Job
+    uses: ./.github/workflows/deploy.yml

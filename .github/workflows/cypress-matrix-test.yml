@@ -2,12 +2,15 @@
 name: Cypress Matrix Test
 
 on:
+  push:
+    branches: 
+      - 'main'
+      - 'hotfix/**'
   workflow_dispatch:
 
 jobs:
   test:
     name: Run Test Configuration
-    if: github.event_name == 'workflow_dispatch' || (github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'publish')
     strategy:
       fail-fast: true
       matrix:
@@ -40,13 +43,13 @@ jobs:
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v2
         with:
-          start: bundle exec jekyll serve --no-watch # No changes should happen -> no need to watch
+          start: bundle exec jekyll serve --source source --no-watch # No changes should happen -> no need to watch
           wait-on: 'http://localhost:4000' # Ensure server comes up before tests start, in case build takes longer
           browser: ${{ matrix.browser }}
           config: viewportHeight=${{ matrix.viewport_height }},viewportWidth=${{ matrix.viewport_width }}
 
   verify:
-    name: All tests successful
+    name: Integration Tests Completed
     if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: test
