@@ -1,7 +1,7 @@
 ---
 author: Test
 title: Scheduled Blog Post
-published: true
+published: false
 layout: post
 excerpt_separator: <!--more-->
 ---
