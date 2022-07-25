@@ -73,7 +73,7 @@
   
   .navBtn:hover {
     font-weight: bold;
-    color: $skolio-red-hovered;
+    color: $skolio-red-800;
   }
 }
 
@@ -104,7 +104,7 @@
 
 .dropdown-content a:hover {
   font-weight: bold;
-  color: $skolio-red-hovered;
+  color: $skolio-red-800;
 }
 
 .dropdown:hover .dropdown-content {
@@ -139,7 +139,7 @@
     }
     .navBtn:hover {
       font-weight: bold;
-      color: $skolio-red-hovered;
+      color: $skolio-red-800;
     }
   }
   .closebtn {
@@ -152,7 +152,7 @@
     text-decoration: none;
     &:hover{
       font-weight: bold;
-      color: $skolio-red-hovered;
+      color: $skolio-red-800;
     }
   }
 }
