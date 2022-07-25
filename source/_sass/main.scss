@@ -192,28 +192,43 @@ a:hover {
   text-decoration: underline;
 }
 
-/* General styling for red links */
-a.red {
-  color: $skolio-red-default;
-}
-
-a.red:hover {
-  color: $skolio-red-hovered;
-}
-a.red:active {
-  color: $skolio-red-pressed;
-}
-
-/* General styling for green links */
+/* Styling for green links */
 a.green {
-  color: $skolio-green-pressed;
+  color: $skolio-green-700;
 }
 
 a.green:hover {
   color: $skolio-green-800;
 }
+
 a.green:active {
   color: $skolio-green-900;
+}
+
+/* Styling for red links */
+a.red {
+  color: $skolio-red-700;
+}
+
+a.red:hover {
+  color: $skolio-red-800;
+}
+
+a.red:active {
+  color: $skolio-red-900;
+}
+
+/* Styling for blue links */
+a.blue {
+  color: $skolio-blue-700;
+}
+
+a.blue:hover {
+  color: $skolio-blue-800;
+}
+
+a.blue:active {
+  color: $skolio-blue-900;
 }
 
 /* General styling for buttons */
@@ -221,54 +236,60 @@ button {
   font-family: Mulish-Bold, sans-serif;
   font-size: 16px;
   line-height: 24px;
+  color: $skolio-white;
 
   padding: 10px 24px;
 
   border-style: none;
   border-radius: 20px;
+
+  a {
+    color: $skolio-white;
+  }
 }
 
 button:hover{
   a {
+    color: $skolio-white;
     text-decoration: none;
   }
 }
 
-/* Styling for yellow buttons */
-button.yellow{
-  background-color: $skolio-yellow-default;
+/* Styling for green buttons */
+button.green{
+  background-color: $skolio-green-600;
 }
 
-button.yellow:hover{
-  background-color: $skolio-yellow-hovered;
+button.green:hover{
+  background-color: $skolio-green-700;
 }
 
-button.yellow:active{
-  background-color: $skolio-yellow-pressed;
+button.green:active{
+  background-color: $skolio-green-800;
 }
 
 /* Styling for red buttons */
 button.red{
-  background-color: $skolio-red-default;
+  background-color: $skolio-red-600;
 }
 
 button.red:hover{
-  background-color: $skolio-red-hovered;
+  background-color: $skolio-red-700;
 }
 
 button.red:active{
-  background-color: $skolio-red-pressed;
+  background-color: $skolio-red-800;
 }
 
-/* Styling for green buttons */
-button.green{
-  background-color: $skolio-green-default;
+/* Styling for blue buttons */
+button.yellow{
+  background-color: $skolio-blue-600;
 }
 
-button.green:hover{
-  background-color: $skolio-green-hovered;
+button.yellow:hover{
+  background-color: $skolio-blue-700;
 }
 
-button.green:active{
-  background-color: $skolio-green-pressed;
+button.yellow:active{
+  background-color: $skolio-blue-800;
 }
