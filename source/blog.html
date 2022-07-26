@@ -17,6 +17,7 @@ style: subpages/blog.css
                 {% endif %}
                 <div class="Blog_PostContent">
                     <h2>{{ post.title }}</h2>
+                    <p>{{ post.date | date: "%d.%m.%Y" }}</p>
                     {{ post.excerpt }}
                     <a href="{{ post.url }}" class="green">Mehr ...</a>
                 </div>

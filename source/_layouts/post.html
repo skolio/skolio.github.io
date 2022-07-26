@@ -12,10 +12,10 @@ style: subpages/post.css
                     <div class="Post_HeaderImage">
                         <img src="/assets/images/{{ author.img }}" alt="Bild {{ author.name }}">
                     </div>
-                    <p>{{ author.name }} - {{ page.date | date_to_string }}</p>
+                    <p>{{ author.name }} - {{ page.date | date: "%d.%m.%Y" }}</p>
                 </div>
             {% else %}
-                <p>{{ page.date | date_to_string }}</p>
+                <p>{{ page.date | date: "%d.%m.%Y" }}</p>
             {% endif %}
         </div>
         <div class="Post_BodyContainer">

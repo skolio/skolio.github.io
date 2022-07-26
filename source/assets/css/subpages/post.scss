@@ -39,3 +39,23 @@
     width: 15%;
   }
 }
+
+.Post_BodyContainer {
+  h2 {
+    margin-top: 45px;
+    margin-bottom: 15px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    h2 {
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    h2 {
+      margin-top: 30px;
+    }
+  }
+}
