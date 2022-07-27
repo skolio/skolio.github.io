@@ -16,7 +16,7 @@
 
 .accordion-item {
   border-style: none;
-  border-top: 1px solid $skolio-light-grey;
+  border-top: 1px solid $skolio-grey-200;
 }
 
 .accordion-item:first-of-type {
@@ -25,12 +25,12 @@
 
 .accordion-item:not(:first-of-type) {
   border-style: none;
-  border-top: 1px solid $skolio-light-grey;
+  border-top: 1px solid $skolio-grey-200;
 }
 
 .accordion-item:last-of-type {
   border-radius: unset;
-  border-bottom: 1px solid $skolio-light-grey;
+  border-bottom: 1px solid $skolio-grey-200;
 }
 
 .accordion-item:first-of-type .accordion-button {

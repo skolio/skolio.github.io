@@ -1,50 +1,59 @@
 /* Color Definitions */
-/* Primary Color */
-$skolio-yellow-default: #FEC472;
-$skolio-yellow-hovered: #F2B661;
-$skolio-yellow-pressed: #E5A850;
-
+/* Skolio Yellow */
+$skolio-yellow-100: #FEF4E5;
+$skolio-yellow-200: #FEEED8;
+$skolio-yellow-300: #FEE9CB;
+$skolio-yellow-400: #FED9A5;
 $skolio-yellow-500: #FECA7F;
+$skolio-yellow-600: #F2B661;
 $skolio-yellow-700: #E5A345;
-
 $skolio-yellow-800: #D9912B;
 $skolio-yellow-900: #CC8014;
 
-$skolio-yellow-100: #FEF4E5;
-$skolio-yellow-200: #FEE9CB;
-$skolio-yellow-300: #FEDFB2;
-$skolio-yellow-400: #FED498;
-$skolio-yellow-lighter-1: #FECF8C;
-$skolio-yellow-lighter-2: #FED9A5;
-$skolio-yellow-lighter-3: #FEE4BE;
-$skolio-yellow-lighter-4: #FFEFD9;
+/* Skolio Red */
+$skolio-red-100: #FEF4F1;
+$skolio-red-200: #FEEAE5;
+$skolio-red-300: #FE7B59;
+$skolio-red-400: #F26C49;
+$skolio-red-500: #D95836;
+$skolio-red-600: #CC4C2B;
+$skolio-red-700: #BF3E1D;
+$skolio-red-800: #942204;
+$skolio-red-900: #661500;
 
-/* Secondary Color */
-$skolio-red-default: #FE7B59;
-$skolio-red-hovered: #E56645;
-$skolio-red-pressed: #CC4B29;
-$skolio-red-800: #B23312;
-$skolio-red-900: #992000;
+/* Skolio Green */
+$skolio-green-100: #E7F2E4;
+$skolio-green-200: #DDEDD8;
+$skolio-green-300: #C1DAB9;
+$skolio-green-400: #90B286;
+$skolio-green-500: #668C5B;
+$skolio-green-600: #58804D;
+$skolio-green-700: #4B733F;
+$skolio-green-800: #315726;
+$skolio-green-900: #204016;
 
-$skolio-red-100: #FECCBE;
-$skolio-red-200: #FEB8A5;
-$skolio-red-300: #FEA38C;
-$skolio-red-400: #FE8F72;
+/* Skolio Blue */
+$skolio-blue-100: #F2FBFF;
+$skolio-blue-200: #E8F8FF;
+$skolio-blue-300: #8DC2D9;
+$skolio-blue-400: #69A5BF;
+$skolio-blue-500: #4B89A6;
+$skolio-blue-600: #3D7D99;
+$skolio-blue-700: #31708C;
+$skolio-blue-800: #144D66;
+$skolio-blue-900: #053145;
 
-/* Accent Color */
-$skolio-green-default: #C1DAB9;
-$skolio-green-hovered: #9ABF8F;
-$skolio-green-pressed: #79A66C;
-$skolio-green-800: #4B733F;
-$skolio-green-900: #25401D;
-
-$skolio-green-300: #F5FFF2;
-$skolio-green-400: #DFF2DA;
-$skolio-green-darker-1: #427334;
-$skolio-green-darker-2: #2C591F;
+/* Skolio Grey */
+$skolio-grey-100: #E6E6E6;
+$skolio-grey-200: #CCCCCC;
+$skolio-grey-300: #B3B3B3;
+$skolio-grey-400: #999999;
+$skolio-grey-500: #808080;
+$skolio-grey-600: #666666;
+$skolio-grey-700: #4D4D4D;
+$skolio-grey-800: #333333;
+$skolio-grey-900: #1A1A1A;
 
 /* Standard Colors */
 $skolio-white: #FFFFFF;
-$skolio-light-grey: #CDCDCD;
-$skolio-medium-grey: #717171;
 $skolio-black: #000000;
