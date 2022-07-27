@@ -1,13 +1,15 @@
 - title: Home
   url: /
 - title: Das Projekt
-  url: skolioApp.html
+  url: /skolioApp.html
 - title: Für Betroffene
-  url: betroffene.html
+  url: /betroffene.html
 - title: Für Fachleute
-  url: fachleute.html
+  url: /fachleute.html
+- title: Blog
+  url: /blog.html
 - title: FAQ
-  url: faq.html
+  url: /faq.html
 - title: Kontakt
   url: /#index-kontakt
   type: button

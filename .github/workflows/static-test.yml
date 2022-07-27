@@ -27,7 +27,7 @@ jobs:
 
       # Build the site for static build output tests
       - name: Build jekyll site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --source source
 
       # Run static test scripts
       - name: Run Test Scripts

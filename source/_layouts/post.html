@@ -1,0 +1,25 @@
+---
+layout: default
+style: subpages/post.css
+---
+{% assign author = site.data.authors[page.author] %}
+<div class="container SubpageWrapper">
+    <div class="Post_ContentWrapper">
+        <div class="Post_HeaderContainer">
+            <h1 class="SubpageHeading">{{ page.title }}</h1>
+            {% if author %}
+                <div class="Post_HeaderContent FlexDiv">
+                    <div class="Post_HeaderImage">
+                        <img src="/assets/images/{{ author.img }}" alt="Bild {{ author.name }}">
+                    </div>
+                    <p>{{ author.name }} - {{ page.date | date: "%d.%m.%Y" }}</p>
+                </div>
+            {% else %}
+                <p>{{ page.date | date: "%d.%m.%Y" }}</p>
+            {% endif %}
+        </div>
+        <div class="Post_BodyContainer">
+            {{ page.content | remove: page.excerpt }}
+        </div>
+    </div>
+</div>
