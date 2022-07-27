@@ -49,7 +49,7 @@
 }
 
 .Blog_PersonImage {
-  width: 20%;
+  width: 15%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,12 +66,12 @@
   }
 
   @include media-breakpoint-down(sm) {
-    width: 90%;
+    width: 70%;
   }
 }
 
 .Blog_PostContent {
-  width: 80%;
+  width: 85%;
 
   @include media-breakpoint-down(sm) {
     width: 100%;
