@@ -49,6 +49,15 @@
     object-fit: cover;
   }
 
+  @include media-breakpoint-up(xxl) {
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     bottom: unset;
     top: -150px;
