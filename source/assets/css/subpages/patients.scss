@@ -118,6 +118,12 @@
     object-fit: cover;
   }
 
+  @include media-breakpoint-up(xxl) {
+    img {
+      height: 100%;
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     width: 100%;
     position: relative;
@@ -193,6 +199,12 @@
   img {
     width: 100%;
     object-fit: cover;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    img {
+      height: 100%;
+    }
   }
 
   @include media-breakpoint-down(lg) {

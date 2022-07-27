@@ -1,9 +1,0 @@
-- id: example-1
-  file: example.md
-#  styling: example.css
-  type: md
-  classes: foo bar
-- id: example-2
-  file: example.md
-#  styling: example.css
-  type: md
